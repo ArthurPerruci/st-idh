@@ -17,7 +17,7 @@ tab1, tab2, tab3 = st.tabs(["O que é IDH?", "GINI e Escolaridade", "Tabela de d
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
    st.text("O Índice de Desenvolvimento Humano (IDH) compara indicadores de países\nnos itens riqueza, alfabetização, educação, esperança de vida, natalidade e outros,\ncom o intuito de avaliar o bem-estar de uma população")
-   st.write("fonte: https://encurtador.com.br/eQS35")
+   st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://encurtador.com.br/eQS35 )")
    st.image(idh_composicao)
 
 with tab2:
