@@ -5,3 +5,4 @@ import pandas as pd
 from vega_datasets import data
 
 df = pd.read_csv("/content/gdrive/MyDrive/ColabCSV/atlas.csv")
+df
