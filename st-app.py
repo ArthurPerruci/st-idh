@@ -6,13 +6,14 @@ from PIL import Image
 
 df = pd.read_csv("atlas.csv")
 idh_composicao = Image.open('idh_composicao.png')
+idh_faixas = Image.open('idh_faixas.png')
 fig_gini_esc = px.box(df, x='gini', y='i_escolaridade')
 
 
 st.title('DASHBOARD IDH')
 texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados\nProjeto Final da Disciplina Análise e Visualização de Dados\nEquipe 12: Arthur Perruci, Daniel Duarte, Enio Kilder'
 st.text(texto1)
-tab1, tab2, tab3 = st.tabs(["O que é IDH?", "GINI e Escolaridade", "Tabela de dados"])
+tab1, tab2, tab3, tab4 = st.tabs(["O que é IDH?", "Faixas de IDH", "GINI e Escolaridade", "Tabela de dados"])
 
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
@@ -21,9 +22,13 @@ with tab1:
    st.image(idh_composicao)
 
 with tab2:
+   st.image(idh_faixas)
+   st.write("Reproduzido de IPEA / O Índice de Desenvolvimento Humano Municipal Brasileiro (disponível para download em: https://repositorio.ipea.gov.br/handle/11058/2375) ")
+
+with tab3:
    st.markdown("**GINI e escolaridade**")
    st.plotly_chart(fig_gini_esc)
 
-with tab3:
+with tab4:
    st.markdown("**Tabela base**")   
    df
