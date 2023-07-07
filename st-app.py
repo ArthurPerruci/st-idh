@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.title('DASHBOARD IDH')
-texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados \n Projeto Final da Disciplina Análise e Visualização de Dados \n Equipe 12: Arthur Perruci, Daniel, Enio'
+texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados%Projeto Final da Disciplina Análise e Visualização de Dados%Equipe 12: Arthur Perruci, Daniel, Enio'
 st.write(texto1)
 tab1, tab2, tab3 = st.tabs(["IDH", "Dog", "Tabela de dados"])
 
