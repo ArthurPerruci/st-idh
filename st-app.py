@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-#import plotly.express as px
+import plotly.express as px
 
 df = pd.read_csv("atlas.csv")
 fig_gini_esc = px.box(df, x='gini', y='i_escolaridade')
