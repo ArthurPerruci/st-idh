@@ -9,7 +9,7 @@ tab1, tab2, tab3 = st.tabs(["IDH", "Dog", "Tabela de dados"])
 with tab1:
    st.subheader("O que representa o Índice de Desenvolvimento Humano - IDH")
    st.text("O Índice de Desenvolvimento Humano (IDH) compara indicadores de países nos itens riqueza, alfabetização, educação, esperança de vida, natalidade e outros, com o intuito de avaliar o bem-estar de uma população")
-   st.text("fonte: https://encurtador.com.br/eQS35")
+   st.write("fonte: https://encurtador.com.br/eQS35")
    st.image("https://static.streamlit.io/examples/cat.jpg", width=50)
 
 with tab2:
