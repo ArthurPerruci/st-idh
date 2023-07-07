@@ -18,9 +18,9 @@ with tab1:
    st.write("fonte: https://encurtador.com.br/eQS35")
 
 with tab2:
-   st.text("**GINI e escolaridade**")
+   st.text("**GINI** **e** **escolaridade**")
    st.plotly_chart(fig_gini_esc)
 
 with tab3:
-   st.text("**Tabela base**")   
+   st.text("**Tabela** **base**")   
    df
