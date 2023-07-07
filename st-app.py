@@ -1,12 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-st.title('DASHBOARD IDH - EQUIPE 12')
-st.write('DASH BOARD IDH')
-tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Tabela de dados"])
+st.title('DASHBOARD IDH')
+st.write('Projeto Final da Disciplina Análise e Visualização de Dados')
+st.write('Equipe 12: Arthur Perruci, Daniel, Enio')
+tab1, tab2, tab3 = st.tabs(["IDH", "Dog", "Tabela de dados"])
 
 with tab1:
-   st.header("A cat")
+   st.header("O que representa o Índice de Desenvolvimento Humano - IDH")
    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
 with tab2:
