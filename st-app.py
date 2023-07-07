@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import PIL
+from PIL import Image
 
 df = pd.read_csv("atlas.csv")
+idh_composicao = Image.open('idh_composicao.png')
 fig_gini_esc = px.box(df, x='gini', y='i_escolaridade')
-
 
 
 st.title('DASHBOARD IDH')
@@ -16,6 +18,7 @@ with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
    st.text("O Índice de Desenvolvimento Humano (IDH) compara indicadores de países\nnos itens riqueza, alfabetização, educação, esperança de vida, natalidade e outros,\ncom o intuito de avaliar o bem-estar de uma população")
    st.write("fonte: https://encurtador.com.br/eQS35")
+   st.image(idh_composicao)
 
 with tab2:
    st.markdown("**GINI e escolaridade**")
