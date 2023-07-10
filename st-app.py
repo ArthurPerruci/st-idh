@@ -14,10 +14,10 @@ st.title('DASHBOARD IDH')
 texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados\nProjeto Final da Disciplina Análise e Visualização de Dados\nEquipe 12: Arthur Perruci, Daniel Duarte, Enio Kilder'
 st.text(texto1)
 
-st.sidebar.["Entender o IDH", "ou", "GINI e Escolaridade", "Tabela de dados"]
+st.sidebar.[entender_idh, ou, gini_escolaridade, tabela_dados]
 
 with st.sidebar:
-   st.["Entender o IDH"]
+   st.[entender_idh]
    col1, col2 = st.columns(2)
       with col1:
          st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
@@ -30,15 +30,15 @@ with st.sidebar:
          st.write("Reproduzido de IPEA / O Índice de Desenvolvimento Humano Municipal Brasileiro (disponível para download em: https://repositorio.ipea.gov.br/handle/11058/2375) ")
 
 with st.sidebar:
-   st.["ou"]
+   st.[ou]
       st.write('ou')
 
 with st.sidebar:
-   st.["GINI e Escolaridade"]
+   st.[gini_escolaridade]
       st.markdown("**GINI e escolaridade**")
       st.plotly_chart(fig_gini_esc)
 
 with st.sidebar:
-   st.["Tabela de dados"]
+   st.[tabela_dados]
       st.markdown("**Tabela base**")   
       df
