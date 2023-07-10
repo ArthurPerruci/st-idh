@@ -14,11 +14,6 @@ st.title('IDH')
 texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados\nProjeto Final da Disciplina Análise e Visualização de Dados\nEquipe 12: Arthur Perruci, Daniel Duarte, Enio Kilder'
 st.text(texto1)
 
-st.sidebar.[entender_idh, ou, gini_escolaridade, tabela_dados]
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
 tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH","ou","Gini e Escolaridade","Tabela de dados"])
 
 with tab1:
