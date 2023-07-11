@@ -92,11 +92,11 @@ with tab2:
    idh_norte_evo = [idhm_norte_91, idhm_norte_00, idhm_norte_10]
    anos = [1991, 2000, 2010]
    fig_idh_reg = go.Figure()
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_sul, name="Sul"))
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_sudeste, name="Sudeste"))
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_centro_oeste, name="Centro Oeste"))
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_nordeste, name="Nordeste"))
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_norte, name="Norte"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_sul_evo, name="Sul"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_sudeste_evo, name="Sudeste"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_centro_oeste_evo, name="Centro Oeste"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_nordeste_evo, name="Nordeste"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_norte_evo, name="Norte"))
 
    fig_idh_reg.update_layout(
      title="IDH médio por Região",
