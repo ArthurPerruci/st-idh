@@ -79,16 +79,16 @@ with tab2:
    df_nordeste_00 = df_nordeste.loc[df_nordeste['ano'] == 2000]
    df_nordeste_10 = df_nordeste.loc[df_nordeste['ano'] == 2010]
    idhm_nordeste_91 = df_nordeste_91['idhm'].sum()/len(df_nordeste_91) 
-   idhm_nordeste_00 = df_nordeste_91['idhm'].sum()/len(df_nordeste_00) 
-   idhm_nordeste_10 = df_nordeste_91['idhm'].sum()/len(df_nordeste_10)
+   idhm_nordeste_00 = df_nordeste_00['idhm'].sum()/len(df_nordeste_00) 
+   idhm_nordeste_10 = df_nordeste_10['idhm'].sum()/len(df_nordeste_10)
    idh_nordeste_evo = [idhm_nordeste_91, idhm_nordeste_00, idhm_nordeste_10]
    df_norte = df.loc[df['regiao'] == 'Norte']
    df_norte_91 = df_norte.loc[df_norte['ano'] == 1991]
    df_norte_00 = df_norte.loc[df_norte['ano'] == 2000]
    df_norte_10 = df_norte.loc[df_norte['ano'] == 2010]
    idhm_norte_91 = df_norte_91['idhm'].sum()/len(df_norte_91) 
-   idhm_norte_00 = df_norte_91['idhm'].sum()/len(df_norte_00) 
-   idhm_norte_10 = df_norte_91['idhm'].sum()/len(df_norte_10)
+   idhm_norte_00 = df_norte_00['idhm'].sum()/len(df_norte_00) 
+   idhm_norte_10 = df_norte_10['idhm'].sum()/len(df_norte_10)
    idh_norte_evo = [idhm_norte_91, idhm_norte_00, idhm_norte_10]
    anos = [1991, 2000, 2010]
    fig_idh_reg = go.Figure()
@@ -99,7 +99,7 @@ with tab2:
    fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_norte_evo, name="Norte"))
 
    fig_idh_reg.update_layout(
-     title="IDH médio por Região",
+     title="Evolução do IDH médio por Região",
      xaxis_title="Ano",
      yaxis_title="idhm"
    )
