@@ -39,7 +39,7 @@ with tab2:
     #ax.set_title(f'Quantidade em estoque dos produtos de {categoria}', f
 
    categoria_grafico = st.sidebar.selectbox('Selecione o ano para apresentar no gráfico', options = df['ano'].unique())
-   df = df[(df["ano"] == categoria_grafico)]
+   df.query('ano == @categoria_grafico')
    df.plot(kind="scatter", figsize=(15, 8), x='corte9', y='i_escolaridade', c='idhm')
    
 #figura = plot_estoque(df, categoria_grafico)
