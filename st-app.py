@@ -66,9 +66,8 @@ with tab2:
    fig_idh_reg = px.bar(df, x=regioes, y=idh_regioes,
                         labels={
                           "regioes":"Região","idh_regioes":"idhm"
-                        }
-                       )
-   fig_idh_reg.update_layout(title="IDH médio por Região")
+                        },
+                       title="IDH médio por Região")
    st.plotly_chart(fig_idh_reg)
 
 
