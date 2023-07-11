@@ -56,9 +56,7 @@ with tab2:
    st.markdown("O gráfico evidencia que não há uma relação forte entre o valor do idhm e do gini, independente do ano e da região.")
    st.sidebar.markdown('Filtros para o gráfico')
    ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
-   regiao_grafico = st.sidebar.checkbox(df['regiao'].unique())
    df = df.loc[df['ano'] == ano_grafico]
-   df = df.loc[df['regiao'] == regiao_grafico]
    fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao")
    fig_idh_gini.update_layout(title="Relação IDH x GINI")
    st.plotly_chart(fig_idh_gini)
