@@ -53,9 +53,12 @@ with tab1:
 with tab2:
    st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
    st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
-   st.sidebar.markdown('Filtro para o gráfico')
-   ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())  #ano_grafico = st.sidebar.selectbox('Ano', options = df['ano'].unique())
-   df = df.loc[df['ano'] == ano_grafico]                          #df = df.query('ano == @ano_grafico')
+   st.markdown("O gráfico evidencia que não há uma relação forte entre o valor do idhm e do gini, independente do ano e da região.")
+   st.sidebar.markdown('Filtros para o gráfico')
+   ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
+   regiao_grafico = st.sidebar.selectbox('Região', df['regiao'].unique())
+   df = df.loc[df['ano'] == ano_grafico]
+   df = df.loc[df['regiao'] == regiao_grafico]
    fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao")
    fig_idh_gini.update_layout(title="Relação IDH x GINI")
    st.plotly_chart(fig_idh_gini)
