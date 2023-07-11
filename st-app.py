@@ -5,9 +5,36 @@ import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 
+#Leitura do data frame
 df = pd.read_csv("atlas.csv")
+
+#incorporação do dado Região ao dataframe
+uf = [[43, 42, 41], [35, 33, 32, 31], [29, 28, 27, 26, 25, 24, 23, 22, 21], [17, 15, 16, 14, 13, 12, 11], [51, 52, 53, 50]]
+sul, sudeste, nordeste, norte, centro_oeste = uf[0], uf[1], uf[2], uf[3], uf[4]
+
+def check_regiao(uf):
+  if sul.count(uf) > 0:
+    return 'Sul'
+  elif sudeste.count(uf) > 0:
+    return 'Sudeste'
+  elif centro_oeste.count(uf) > 0:
+    return 'Centro Oeste'
+  elif nordeste.count(uf) > 0:
+    return 'Nordeste'
+  else:
+    return 'Norte'
+
+df['regiao'] = df['uf'].apply(check_regiao)
+
+#carregamento de imagens
 idh_composicao = Image.open('idh_composicao.png')
 idh_faixas = Image.open('idh_faixas.png')
+
+#Gráfico IDH GINI
+fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao", size="idhm")
+fig_idh_gini.update_layout(title="Relação IDH x GINI")
+
+
 fig_gini_esc = px.box(df, x='gini', y='i_escolaridade')
 
 
@@ -15,7 +42,8 @@ st.title('IDH')
 texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados\nProjeto Final da Disciplina Análise e Visualização de Dados\nEquipe 12: Arthur Perruci, Daniel Duarte, Enio Kilder'
 st.text(texto1)
 
-tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH","ou","Gini e Escolaridade","Tabela de dados"])
+#Estruturação das tabs
+tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH","IDH e GINI","Gini e Escolaridade","Tabela de dados"])
 
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
@@ -27,24 +55,11 @@ with tab1:
    st.write("Reproduzido de IPEA / O Índice de Desenvolvimento Humano Municipal Brasileiro (disponível para download em: https://repositorio.ipea.gov.br/handle/11058/2375) ")
 
 with tab2:
-   st.markdown("**ou**")
+   st.markdown("**IDH x GINI**")
    st.sidebar.markdown('## Filtro para o gráfico')
-
-   def plot_estoque(dataframe, categoria):
-      df = df[(df["ano"] == categoria)]
-      fig = df.plot(kind="scatter", figsize=(15, 8), x='corte9', y='i_escolaridade', c='idhm')
-      return fig
-    #fig, ax = plt.subplots(figsize=(8,6))
-    #ax = sns.barplot(x = 'Produto', y = 'Quantidade', data = dados_plot)
-    #ax.set_title(f'Quantidade em estoque dos produtos de {categoria}', f
-
-   categoria_grafico = st.sidebar.selectbox('Selecione o ano para apresentar no gráfico', options = df['ano'].unique())
+   categoria_grafico = st.sidebar.selectbox('Selecione o ano a ser apresentado no gráfico', options = df['ano'].unique())
    df = df.query('ano == @categoria_grafico')
-   #fig3 = df.plot(kind="scatter", figsize=(15, 8), x='corte9', y='i_escolaridade', c='idhm')
-   fig3 = px.box(df, x='gini', y='i_escolaridade')
-   st.plotly_chart(fig3)
-#figura = plot_estoque(df, categoria_grafico)
-   #st.pyplot(figura)
+   st.plotly_chart(fig_idh_gini)
 
 
 with tab3:
