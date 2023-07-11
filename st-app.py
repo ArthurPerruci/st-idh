@@ -63,11 +63,12 @@ with tab2:
    idhm_norte = df_norte['idhm'].sum()/len(df_norte)
    idh_regioes = [idhm_sul, idhm_sudeste, idhm_centro_oeste, idhm_nordeste, idhm_norte]
    regioes = ['Sul', 'Sudeste', 'Centro Oeste', 'Nordeste', 'Norte']
-   fig_idh_reg = px.bar(df, x=regioes, y=idh_regioes,
-                        labels={
-                          "regioes":"Região","idh_regioes":"idhm"
-                        },
-                       title="IDH médio por Região")
+   fig_idh_reg = px.bar(df, x=regioes, y=idh_regioes)
+   fig_idh_reg.update_layout(
+     title="IDH médio por Região",
+     xaxis_title="Região",
+     yaxis_title="idhm"
+   )
    st.plotly_chart(fig_idh_reg)
 
 
