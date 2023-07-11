@@ -3,3 +3,5 @@ numpy
 regex
 plotly
 plotly.express
+matplotlib
+matplotlib.pyplot
