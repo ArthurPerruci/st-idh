@@ -58,7 +58,7 @@ with tab2:
    ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
    df = df.loc[df['ano'] == ano_grafico]
    fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao")
-   fig_idh_gini.update_layout(title="Relação IDH x GINI")
+   fig_idh_gini.update_layout(title="Relação IDH x GINI" + ano_grafico)
    st.plotly_chart(fig_idh_gini)
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
