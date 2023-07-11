@@ -121,6 +121,6 @@ with tab4:
    st.markdown("Vários indicadores relacionados à saúde, educação e renda são utilizados no cálculo do idh. Aque escolhemos alguns para ver o grau de relação com o idh final.")
    df = df.loc[df['ano'] == ano_grafico]
    comp = ['idhm', 'espvida', 'mort1', 't_env', 't_analf18m', 'e_anosestudo', 'tmed25m', 'rdpc', 'gini', 'pmpob']
-   fig_comp_idh = px.imshow(comp, annot=True)
+   fig_comp_idh = px.imshow(comp)
    fig_comp_idh.update_layout(title="composição do IDH")
    st.plotly_chart(fig_comp_idh)
