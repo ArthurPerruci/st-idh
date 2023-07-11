@@ -49,21 +49,50 @@ with tab1:
 with tab2:
    st.markdown("O gráfico mostra os valores médios de idhm das cinco regiões brasileiras")
    st.sidebar.markdown('Filtros para o gráfico')
-   ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
-   df = df.loc[df['ano'] == ano_grafico]
    df_sul = df.loc[df['regiao'] == 'Sul']
+   df_sul_91 = df_sul.loc[df_sul['ano'] == 1991]
+   df_sul_00 = df_sul.loc[df_sul['ano'] == 2000]  
+   df_sul_10 = df_sul.loc[df_sul['ano'] == 2010]
+   idhm_sul_91 = df_sul_91['idhm'].sum()/len(df_sul_91)
+   idhm_sul_00 = df_sul_00['idhm'].sum()/len(df_sul_00)
+   idhm_sul_10 = df_sul_10['idhm'].sum()/len(df_sul_10)
    df_sudeste = df.loc[df['regiao'] == 'Sudeste']
+   df_sudeste_91 = df_sudeste.loc[df_sudeste['ano'] == 1991]
+   df_sudeste_00 = df_sudeste.loc[df_sudeste['ano'] == 2000]
+   df_sudeste_10 = df_sudeste.loc[df_sudeste['ano'] == 2010]
+   idhm_sudeste_91 = df_sudeste_91['idhm'].sum()/len(df_sudeste_91)
+   idhm_sudeste_00 = df_sudeste_00['idhm'].sum()/len(df_sudeste_00)
+   idhm_sudeste_10 = df_sudeste_10['idhm'].sum()/len(df_sudeste_10)
    df_centro_oeste = df.loc[df['regiao'] == 'Centro Oeste']
+   df_centro_oeste_91 = df_centro_oeste.loc[df_centro_oeste['ano'] == 1991]
+   df_centro_oeste_00 = df_centro_oeste.loc[df_centro_oeste['ano'] == 2000]
+   df_centro_oeste_10 = df_centro_oeste.loc[df_centro_oeste['ano'] == 2010]
+   idhm_centro_oeste_91 = df_centro_oeste_91['idhm'].sum()/len(df_centro_oeste_91) 
+   idhm_centro_oeste_00 = df_centro_oeste_00['idhm'].sum()/len(df_centro_oeste_00)
+   idhm_centro_oeste_10 = df_centro_oeste_10['idhm'].sum()/len(df_centro_oeste_10)
    df_nordeste = df.loc[df['regiao'] == 'Nordeste']
+   df_nordeste_91 = df_nordeste.loc[df_nordeste['ano'] == 1991]
+   df_nordeste_00 = df_nordeste.loc[df_nordeste['ano'] == 2000]
+   df_nordeste_10 = df_nordeste.loc[df_nordeste['ano'] == 2010]
+   idhm_nordeste_91 = df_nordeste_91['idhm'].sum()/len(df_nordeste_91) 
+   idhm_nordeste_00 = df_nordeste_91['idhm'].sum()/len(df_nordeste_00) 
+   idhm_nordeste_10 = df_nordeste_91['idhm'].sum()/len(df_nordeste_10) 
    df_norte = df.loc[df['regiao'] == 'Norte']
-   idhm_sul = df_sul['idhm'].sum()/len(df_sul)
-   idhm_sudeste = df_sudeste['idhm'].sum()/len(df_sudeste)
-   idhm_centro_oeste = df_centro_oeste['idhm'].sum()/len(df_centro_oeste)
-   idhm_nordeste = df_nordeste['idhm'].sum()/len(df_nordeste)
-   idhm_norte = df_norte['idhm'].sum()/len(df_norte)
-   idh_regioes = [idhm_sul, idhm_sudeste, idhm_centro_oeste, idhm_nordeste, idhm_norte]
+   df_norte_91 = df_norte.loc[df_norte['ano'] == 1991]
+   df_norte_00 = df_norte.loc[df_norte['ano'] == 2000]
+   df_norte_10 = df_norte.loc[df_norte['ano'] == 2010]
+   idhm_norte_91 = df_norte_91['idhm'].sum()/len(df_norte_91) 
+   idhm_norte_00 = df_norte_91['idhm'].sum()/len(df_norte_00) 
+   idhm_norte_10 = df_norte_91['idhm'].sum()/len(df_norte_10) 
+   idh_regioes_91 = [idhm_sul_91, idhm_sudeste_91, idhm_centro_oeste_91, idhm_nordeste_91, idhm_norte_91]
+   idh_regioes_00 = [idhm_sul_00, idhm_sudeste_00, idhm_centro_oeste_00, idhm_nordeste_00, idhm_norte_00]
+   idh_regioes_10 = [idhm_sul_10, idhm_sudeste_10, idhm_centro_oeste_10, idhm_nordeste_10, idhm_norte_10]
    regioes = ['Sul', 'Sudeste', 'Centro Oeste', 'Nordeste', 'Norte']
-   fig_idh_reg = px.bar(df, x=regioes, y=idh_regioes)
+   fig_idh_reg = go.Figure()
+   fig_idh_reg.add_trace(go.Scatter(x=regioes, y=idh_regioes_91, name="1991"))
+   fig_idh_reg.add_trace(go.Scatter(x=regioes, y=idh_regioes_00, name="2000"))
+   fig_idh_reg.add_trace(go.Scatter(x=regioes, y=idh_regioes_10, name="2010"))
+
    fig_idh_reg.update_layout(
      title="IDH médio por Região",
      xaxis_title="Região",
@@ -76,6 +105,8 @@ with tab3:
    st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
    st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
    st.markdown("O gráfico evidencia que não há uma relação forte entre o valor do idhm e do gini, independente do ano e da região.")
+   ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
+   df = df.loc[df['ano'] == ano_grafico]
    fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao")
    fig_idh_gini.update_layout(title="Relação IDH x GINI")
    st.plotly_chart(fig_idh_gini)
