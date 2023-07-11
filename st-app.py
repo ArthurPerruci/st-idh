@@ -57,9 +57,9 @@ with tab1:
 with tab2:
    st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
    st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
-   st.sidebar.markdown('##Filtro para o gráfico##')
+   st.sidebar.markdown('Filtro para o gráfico')
    categoria_grafico = st.sidebar.selectbox('Ano', options = df['ano'].unique())
-   df = df.query('ano == @categoria_grafico')
+   df = df.query('ano == categoria_grafico')
    st.plotly_chart(fig_idh_gini)
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nO tamanho da esfera é proporcional ao valor do idhm.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
