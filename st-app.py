@@ -36,7 +36,7 @@ texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de D
 st.text(texto1)
 
 #Estruturação das tabs
-tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH", "IDH por Resgião", "IDH e GINI", "Tabela de dados"])
+tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "Tabela de dados"])
 
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
@@ -48,7 +48,7 @@ with tab1:
    st.write("Reproduzido de IPEA / O Índice de Desenvolvimento Humano Municipal Brasileiro (disponível para download em: https://repositorio.ipea.gov.br/handle/11058/2375) ")
 
 with tab2:
-   st.markdown("O gráfico mostra a evolução dos valores médios de idhm das cinco regiões brasileiras. Fica evidente um processo de incremento dos valores de idh entre 1991 e 2010. Percebe-se também que os valores de idh nas regiões norte e nordeste são discretamente inferiores que os das demais regiões, da mesma maneira precebe-se que esta diferença diminuiu um pouco no período")
+   st.markdown("O gráfico mostra a evolução dos valores médios de idhm das cinco regiões brasileiras. Fica evidente um processo de incremento dos valores de idh entre 1991 e 2010. Percebe-se também que os valores de idh nas regiões norte e nordeste são discretamente inferiores que os das demais regiões, da mesma maneira precebe-se que esta diferença diminuiu um pouco no período.")
    st.sidebar.markdown('Filtros para o gráfico')
    df_sul = df.loc[df['regiao'] == 'Sul']
    df_sul_91 = df_sul.loc[df_sul['ano'] == 1991]
