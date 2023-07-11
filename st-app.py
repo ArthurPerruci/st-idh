@@ -118,7 +118,7 @@ with tab3:
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
 with tab4:
-   st.markdown("Vários dados são utilizados para se chegar ao idh.")
+   st.markdown("Vários indicadores relacionados à saúde, educação e renda são utilizados no cálculo do idh. Aque escolhemos alguns para ver o grau de relação com o idh final.")
    df = df.loc[df['ano'] == ano_grafico]
    comp = ['idhm', 'espvida', 'mort1', 't_env', 't_analf18m', 'e_anosestudo', 'tmed25m', 'rdpc', 'trabcc', 'pea18m']
    fig_comp_idh = px.imshow(comp, text_auto=True, aspect="auto")
