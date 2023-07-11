@@ -34,9 +34,9 @@ with tab2:
    st.pyplot(figura)
 
    def plot_estoque(dataframe, categoria):
-
       df = df[(df["ano"] == categoria)]
-
+      fig = df.plot(kind="scatter", figsize=(15, 8), x='corte9', y='i_escolaridade', c='idhm')
+      return fig
     #fig, ax = plt.subplots(figsize=(8,6))
     #ax = sns.barplot(x = 'Produto', y = 'Quantidade', data = dados_plot)
     #ax.set_title(f'Quantidade em estoque dos produtos de {categoria}', f
