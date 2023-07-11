@@ -41,7 +41,7 @@ with tab2:
    categoria_grafico = st.sidebar.selectbox('Selecione o ano para apresentar no gráfico', options = df['ano'].unique())
    df.query('ano == @categoria_grafico')
    df.plot(kind="scatter", figsize=(15, 8), x='corte9', y='i_escolaridade', c='idhm')
-   plt.show()
+   st.plotly_chart(plt.show())
 #figura = plot_estoque(df, categoria_grafico)
    #st.pyplot(figura)
 
