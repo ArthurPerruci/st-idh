@@ -4,4 +4,3 @@ regex
 plotly
 plotly.express
 matplotlib
-plotly.graph_objects
