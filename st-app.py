@@ -36,7 +36,7 @@ texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de D
 st.text(texto1)
 
 #Estruturação das tabs
-tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "Tabela de dados"])
+tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "Composição do IDH"])
 
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
@@ -118,5 +118,9 @@ with tab3:
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
 with tab4:
-   st.markdown("**Tabela base**")   
-   df
+   st.markdown("Vários dados são utilizados para se chegar ao idh.")
+   df = df.loc[df['ano'] == ano_grafico]
+   comp = ['idhm', 'espvida', 'mort1', 't_env', 't_analf18m', 'e_anosestudo', 'tmed25m', 'rdpc', 'trabcc', 'pea18m']
+   fig_comp_idh = px.imshow(comp, text_auto=True, aspect="auto")
+   fig_comp_idh.update_layout(title="composição do IDH")
+   st.plotly_chart(fig_comp_idh)
