@@ -4,6 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
+import plotly.graph_objects as go
 
 #Leitura do data frame
 df = pd.read_csv("atlas.csv")
