@@ -31,7 +31,7 @@ idh_composicao = Image.open('idh_composicao.png')
 idh_faixas = Image.open('idh_faixas.png')
 
 #Gráfico IDH GINI
-fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao", size="idhm")
+fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao", size="idhm", symbol="ano")
 fig_idh_gini.update_layout(title="Relação IDH x GINI")
 
 
