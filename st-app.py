@@ -29,10 +29,6 @@ with tab2:
    st.markdown("**ou**")
    st.sidebar.markdown('## Filtro para o gráfico')
 
-
-
- 
-
    def plot_estoque(dataframe, categoria):
       df = df[(df["ano"] == categoria)]
       fig = df.plot(kind="scatter", figsize=(15, 8), x='corte9', y='i_escolaridade', c='idhm')
@@ -41,9 +37,12 @@ with tab2:
     #ax = sns.barplot(x = 'Produto', y = 'Quantidade', data = dados_plot)
     #ax.set_title(f'Quantidade em estoque dos produtos de {categoria}', f
 
-  categoria_grafico = st.sidebar.selectbox('Selecione o ano para apresentar no gráfico', options = df['ano'].unique())
-   figura = plot_estoque(df, categoria_grafico)
-   st.pyplot(figura)
+   categoria_grafico = st.sidebar.selectbox('Selecione o ano para apresentar no gráfico', options = df['ano'].unique())
+   df = df[(df["ano"] == categoria_grafico)]
+   df.plot(kind="scatter", figsize=(15, 8), x='corte9', y='i_escolaridade', c='idhm')
+   
+#figura = plot_estoque(df, categoria_grafico)
+   #st.pyplot(figura)
 
 
 with tab3:
