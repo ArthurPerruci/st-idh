@@ -31,7 +31,7 @@ idh_composicao = Image.open('idh_composicao.png')
 idh_faixas = Image.open('idh_faixas.png')
 
 #Gráfico IDH GINI
-fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao", size="idhm", symbol="ano")
+fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao", size="idhm")
 fig_idh_gini.update_layout(title="Relação IDH x GINI")
 
 
@@ -57,7 +57,7 @@ with tab1:
 with tab2:
    st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
    st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
-   st.sidebar.markdown('Filtro para o gráfico')
+   st.sidebar.markdown('##Filtro para o gráfico##')
    categoria_grafico = st.sidebar.selectbox('Ano', options = df['ano'].unique())
    df = df.query('ano == @categoria_grafico')
    st.plotly_chart(fig_idh_gini)
