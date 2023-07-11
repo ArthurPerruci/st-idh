@@ -120,7 +120,7 @@ with tab3:
 with tab4:
    st.markdown("Vários indicadores relacionados à saúde, educação e renda são utilizados no cálculo do idh. Aque escolhemos alguns para ver o grau de relação com o idh final.")
    df = df.loc[df['ano'] == ano_grafico]
-   df_comp = df[['idhm', 'espvida', 'mort1', 't_env', 't_analf18m', 'e_anosestudo', 'tmed25m', 'rdpc', 'gini', 'pmpob']].copy()
+   df_comp = df[['idhm', 'espvida', 'mort1', 't_env', 't_analf18m', 'e_anosestudo', 't_med25m', 'rdpc', 'gini', 'pmpob']].copy()
    comp = df_comp.corr(method='pearson')
    fig_comp_idh = px.imshow(comp)
    fig_comp_idh.update_layout(title="composição do IDH")
