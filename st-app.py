@@ -57,6 +57,7 @@ with tab2:
    idhm_sul_91 = df_sul_91['idhm'].sum()/len(df_sul_91)
    idhm_sul_00 = df_sul_00['idhm'].sum()/len(df_sul_00)
    idhm_sul_10 = df_sul_10['idhm'].sum()/len(df_sul_10)
+   idh_sul_evo = [idhm_sul_91, idhm_sul_00, idhm_sul_10]
    df_sudeste = df.loc[df['regiao'] == 'Sudeste']
    df_sudeste_91 = df_sudeste.loc[df_sudeste['ano'] == 1991]
    df_sudeste_00 = df_sudeste.loc[df_sudeste['ano'] == 2000]
@@ -64,6 +65,7 @@ with tab2:
    idhm_sudeste_91 = df_sudeste_91['idhm'].sum()/len(df_sudeste_91)
    idhm_sudeste_00 = df_sudeste_00['idhm'].sum()/len(df_sudeste_00)
    idhm_sudeste_10 = df_sudeste_10['idhm'].sum()/len(df_sudeste_10)
+   idh_sudeste_evo = [idhm_sudeste_91, idhm_sudeste_00, idhm_sudeste_10]
    df_centro_oeste = df.loc[df['regiao'] == 'Centro Oeste']
    df_centro_oeste_91 = df_centro_oeste.loc[df_centro_oeste['ano'] == 1991]
    df_centro_oeste_00 = df_centro_oeste.loc[df_centro_oeste['ano'] == 2000]
@@ -71,33 +73,34 @@ with tab2:
    idhm_centro_oeste_91 = df_centro_oeste_91['idhm'].sum()/len(df_centro_oeste_91) 
    idhm_centro_oeste_00 = df_centro_oeste_00['idhm'].sum()/len(df_centro_oeste_00)
    idhm_centro_oeste_10 = df_centro_oeste_10['idhm'].sum()/len(df_centro_oeste_10)
+   idh_centro_oeste_evo = [idhm_centro_oeste_91, idhm_centro_oeste_00, idhm_centro_oeste_10]
    df_nordeste = df.loc[df['regiao'] == 'Nordeste']
    df_nordeste_91 = df_nordeste.loc[df_nordeste['ano'] == 1991]
    df_nordeste_00 = df_nordeste.loc[df_nordeste['ano'] == 2000]
    df_nordeste_10 = df_nordeste.loc[df_nordeste['ano'] == 2010]
    idhm_nordeste_91 = df_nordeste_91['idhm'].sum()/len(df_nordeste_91) 
    idhm_nordeste_00 = df_nordeste_91['idhm'].sum()/len(df_nordeste_00) 
-   idhm_nordeste_10 = df_nordeste_91['idhm'].sum()/len(df_nordeste_10) 
+   idhm_nordeste_10 = df_nordeste_91['idhm'].sum()/len(df_nordeste_10)
+   idh_nordeste_evo = [idhm_nordeste_91, idhm_nordeste_00, idhm_nordeste_10]
    df_norte = df.loc[df['regiao'] == 'Norte']
    df_norte_91 = df_norte.loc[df_norte['ano'] == 1991]
    df_norte_00 = df_norte.loc[df_norte['ano'] == 2000]
    df_norte_10 = df_norte.loc[df_norte['ano'] == 2010]
    idhm_norte_91 = df_norte_91['idhm'].sum()/len(df_norte_91) 
    idhm_norte_00 = df_norte_91['idhm'].sum()/len(df_norte_00) 
-   idhm_norte_10 = df_norte_91['idhm'].sum()/len(df_norte_10) 
-   idh_regioes_91 = [idhm_sul_91, idhm_sudeste_91, idhm_centro_oeste_91, idhm_nordeste_91, idhm_norte_91]
-   idh_regioes_00 = [idhm_sul_00, idhm_sudeste_00, idhm_centro_oeste_00, idhm_nordeste_00, idhm_norte_00]
-   idh_regioes_10 = [idhm_sul_10, idhm_sudeste_10, idhm_centro_oeste_10, idhm_nordeste_10, idhm_norte_10]
+   idhm_norte_10 = df_norte_91['idhm'].sum()/len(df_norte_10)
+   idh_norte_evo = [idhm_norte_91, idhm_norte_00, idhm_norte_10]
    anos = [1991, 2000, 2010]
-   regioes = ['Sul', 'Sudeste', 'Centro Oeste', 'Nordeste', 'Norte']
    fig_idh_reg = go.Figure()
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_regioes_91, name="1991"))
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_regioes_00, name="2000"))
-   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_regioes_10, name="2010"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_sul, name="Sul"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_sudeste, name="Sudeste"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_centro_oeste, name="Centro Oeste"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_nordeste, name="Nordeste"))
+   fig_idh_reg.add_trace(go.Scatter(x=anos, y=idh_evo_norte, name="Norte"))
 
    fig_idh_reg.update_layout(
      title="IDH médio por Região",
-     xaxis_title="Região",
+     xaxis_title="Ano",
      yaxis_title="idhm"
    )
    st.plotly_chart(fig_idh_reg)
