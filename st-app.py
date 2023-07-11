@@ -63,7 +63,12 @@ with tab2:
    idhm_norte = df_norte['idhm'].sum()/len(df_norte)
    idh_regioes = [idhm_sul, idhm_sudeste, idhm_centro_oeste, idhm_nordeste, idhm_norte]
    regioes = ['Sul', 'Sudeste', 'Centro Oeste', 'Nordeste', 'Norte']
-   fig_idh_reg = px.bar(df, x=regioes, y=idh_regioes)
+   fig_idh_reg = px.bar(df, x=regioes, y=idh_regioes,
+                        labels={
+                          "regioes":"Região","idh_regioes":"idhm"
+                        }
+                       )
+   fig_idh_reg.update_layout(title="IDH médio por Região")
    st.plotly_chart(fig_idh_reg)
 
 
@@ -71,8 +76,6 @@ with tab3:
    st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
    st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
    st.markdown("O gráfico evidencia que não há uma relação forte entre o valor do idhm e do gini, independente do ano e da região.")
-   ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
-   df = df.loc[df['ano'] == ano_grafico]   
    fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao")
    fig_idh_gini.update_layout(title="Relação IDH x GINI")
    st.plotly_chart(fig_idh_gini)
