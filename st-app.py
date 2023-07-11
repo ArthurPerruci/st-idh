@@ -59,7 +59,7 @@ with tab2:
    st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
    st.sidebar.markdown('Filtro para o gráfico')
    ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())  #ano_grafico = st.sidebar.selectbox('Ano', options = df['ano'].unique())
-   df = df.loc[df['ano'] == ano_grafico)                          #df = df.query('ano == @ano_grafico')
+   df = df.loc[df['ano'] == ano_grafico]                          #df = df.query('ano == @ano_grafico')
    st.plotly_chart(fig_idh_gini)
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
