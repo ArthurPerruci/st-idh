@@ -55,11 +55,13 @@ with tab1:
    st.write("Reproduzido de IPEA / O Índice de Desenvolvimento Humano Municipal Brasileiro (disponível para download em: https://repositorio.ipea.gov.br/handle/11058/2375) ")
 
 with tab2:
-   st.markdown("**IDH x GINI**")
+   st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
+   st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
    st.sidebar.markdown('## Filtro para o gráfico')
-   categoria_grafico = st.sidebar.selectbox('Selecione o ano a ser apresentado no gráfico', options = df['ano'].unique())
+   categoria_grafico = st.sidebar.selectbox('Ano', options = df['ano'].unique())
    df = df.query('ano == @categoria_grafico')
    st.plotly_chart(fig_idh_gini)
+   st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010. Escolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município, e o tamanho da esfera é proporcional ao valor do idhm.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
 
 with tab3:
