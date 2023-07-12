@@ -118,9 +118,9 @@ with tab3:
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
 with tab4:
-   st.markdown("Vários indicadores relacionados à saúde, educação e renda são utilizados no cálculo do idh. Aque escolhemos alguns para ver o grau de relação com o idh final.")
+   st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final.")
    df = df.loc[df['ano'] == ano_grafico]
-   df_comp = df[['idhm', 'espvida', 'mort1', 't_env', 't_analf18m', 'e_anosestudo', 't_med25m', 'rdpc', 'gini', 'pmpob']].copy()
+   df_comp = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
    comp = df_comp.corr(method='pearson')
    fig_comp_idh = px.imshow(comp)
    fig_comp_idh.update_layout(title="composição do IDH")
