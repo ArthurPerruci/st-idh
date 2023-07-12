@@ -122,6 +122,7 @@ with tab4:
    df = df.loc[df['ano'] == ano_grafico]
    df_comp_long = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
    comp_long = df_comp_long.corr(method='pearson')
+   fig_idh_long = px.imshow(comp_long)
    fig_idh_long.update_layout(title="Indicadores IDH Longevidade")
    fig_idh_long_leg = go.Figure()
    fig_idh_long_leg.add_trace(
