@@ -124,5 +124,17 @@ with tab4:
    comp = df_comp.corr(method='pearson')
    fig_idh_long = px.imshow(comp)
    fig_idh_long.update_layout(title="Indicadores IDH Longevidade")
-   fig_idh_long.update_xaxes(labelalias=['Idhm', 'Idhm-L', 'Esperança de vida ao nascer','Taxa de fecundidade','Mortalidade Infantil','Mortalidade até os 5 anos','Razão de dependência','Probabilidade de sobrevivência até 40 anos','Probabilidade de sobrevivência até 60 anos','Taxa de envelhecimento'])
+   fig_idh_long.update_layout(labels={
+                                 "idhm":"Idhm",
+                                 "idhm_l":"Idhm-L",
+                                 "espvida":"Esperança de vida ao nascer",
+                                 "fectot":"Taxa de fecundidade",
+                                 "mort1":"Mortalidade Infantil",
+                                 "mort5":"Mortalidade até os 5 anos",
+                                 "razdep":"Razão de dependência",
+                                 "sobre40":"Probabilidade de sobrevivência até 40 anos",
+                                 "sobre60":"Probabilidade de sobrevivência até 60 anos",
+                                 "t_env":"Taxa de envelhecimento"
+                             }
+                      )
    st.plotly_chart(fig_comp_idh)
