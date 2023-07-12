@@ -36,7 +36,7 @@ texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de D
 st.text(texto1)
 
 #Estruturação das tabs
-tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "Composição do IDH"])
+tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "IDH - Longevidade"])
 
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
