@@ -122,18 +122,24 @@ with tab4:
    df = df.loc[df['ano'] == ano_grafico]
    df_comp_long = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
    comp_long = df_comp_long.corr(method='pearson')
-   fig_idh_long = px.imshow(comp_long, labels={
-                                 "idhm":"Idhm",
-                                 "idhm_l":"Idhm-L",
-                                 "espvida":"Esperança de vida ao nascer",
-                                 "fectot":"Taxa de fecundidade",
-                                 "mort1":"Mortalidade Infantil",
-                                 "mort5":"Mortalidade até os 5 anos",
-                                 "razdep":"Razão de dependência",
-                                 "sobre40":"Probabilidade de sobrevivência até 40 anos",
-                                 "sobre60":"Probabilidade de sobrevivência até 60 anos",
-                                 "t_env":"Taxa de envelhecimento"
-                             }
-                           )
    fig_idh_long.update_layout(title="Indicadores IDH Longevidade")
+   fig_idh_long_leg = go.Figure()
+   fig_idh_long_leg.add_trace(
+     go.Table(
+       header = dict(values=['Indicador','Descrição']),
+       cells = dict(values=[
+            ['idhm','Idhm'],
+            ['idhm_l','Idhm-L'],
+            ['espvida','Esperança de vida ao nascer'],
+            ['fectot','Taxa de fecundidade'],
+            ['mort1','Mortalidade Infantil'],
+            ['mort5','Mortalidade até os 5 anos'],
+            ['razdep','Razão de dependência'],
+            ['sobre40','Probabilidade de sobrevivência até 40 anos'],
+            ['sobre60','Probabilidade de sobrevivência até 60 anos'],
+            ['t_env','Taxa de envelhecimento']
+       ])
+     )
+   )
    st.plotly_chart(fig_idh_long)
+   st.potly_chart(fig_idh_long_leg)
