@@ -127,18 +127,9 @@ with tab4:
    fig_idh_long_leg = go.Figure()
    fig_idh_long_leg.add_trace(
      go.Table(
-       header = dict(values=['Indicador','Descrição']),
        cells = dict(values=[
-            ['idhm','Idhm'],
-            ['idhm_l','Idhm-L'],
-            ['espvida','Esperança de vida ao nascer'],
-            ['fectot','Taxa de fecundidade'],
-            ['mort1','Mortalidade Infantil'],
-            ['mort5','Mortalidade até os 5 anos'],
-            ['razdep','Razão de dependência'],
-            ['sobre40','Probabilidade de sobrevivência até 40 anos'],
-            ['sobre60','Probabilidade de sobrevivência até 60 anos'],
-            ['t_env','Taxa de envelhecimento']
+            ['Indicador', 'idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env'],
+            ['descrição', 'Idhm', 'Idhm-L', 'Esperança de vida ao nascer', 'Taxa de fecundidade', 'Mortalidade Infantil', 'Mortalidade até os 5 anos', 'Razão de dependência', 'Probabilidade de sobrevivência até 40 anos', 'Probabilidade de sobrevivência até 60 anos', 'Taxa de envelhecimento']
        ])
      )
    )
