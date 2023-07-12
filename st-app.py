@@ -143,4 +143,4 @@ with tab4:
      )
    )
    st.plotly_chart(fig_idh_long)
-   st.potly_chart(fig_idh_long_leg)
+   st.plotly_chart(fig_idh_long_leg)
