@@ -120,8 +120,9 @@ with tab3:
 with tab4:
    st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final.")
    df = df.loc[df['ano'] == ano_grafico]
-   df_comp = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env', 'pop']].copy()
+   df_comp = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
    comp = df_comp.corr(method='pearson')
-   fig_comp_idh = px.imshow(comp)
-   fig_comp_idh.update_layout(title="composição do IDH")
+   fig_idh_long = px.imshow(comp)
+   fig_idh_long.update_layout(title="Indicadores IDH Longevidade")
+   fig_idh_long.updateLayout(labels=['Idhm', 'Idhm-L', 'Esperança de vida ao nascer','Taxa de fecundidade','Mortalidade Infantil','Mortalidade até os 5 anos','Razão de dependência','Probabilidade de sobrevivência até 40 anos','Probabilidade de sobrevivência até 60 anos','Taxa de envelhecimento'])
    st.plotly_chart(fig_comp_idh)
