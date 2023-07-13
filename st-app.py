@@ -39,7 +39,7 @@ texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de D
 st.text(texto1)
 
 #Estruturação das tabs
-tab1, tab2, tab3, tab4, tab5= st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "IDH - Longevidade", "IDH - Educação"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "IDH - Longevidade", "IDH - Educação", "IDH - Renda"])
 
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
@@ -163,3 +163,27 @@ with tab5:
      )
   st.plotly_chart(fig_idh_edu)
   st.plotly_chart(fig_idh_edu_leg)
+
+with tab6:
+  st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à renda com o idh-r e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores xxxx, xxxxx e xxxx.")
+  df = df.loc[df['ano'] == ano_grafico]
+  df_comp_ren = df[df_leg_ren['INDICADOR']].copy()
+  comp_ren = df_comp_ren.corr(method='pearson')
+  fig_idh_ren = px.imshow(comp_ren)
+  fig_idh_ren.update_layout(title="Indicadores IDH Renda - " + str(ano_grafico))
+  fig_idh_ren_leg = go.Figure()
+  fig_idh_ren_leg.add_trace(
+     go.Table(
+       header = dict(values=['Indicador','Descrição']),
+       cells = dict(values=[
+            df_leg_ren['INDICADOR'],
+            df_leg_ren['DESCRIÇÃO']
+            ],
+       align=['center','left']),
+       columnwidth=[1,4]
+       )
+     )
+  st.plotly_chart(fig_idh_ren)
+  st.plotly_chart(fig_idh_ren_leg)
+
+
