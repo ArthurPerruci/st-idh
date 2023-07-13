@@ -123,7 +123,6 @@ with tab3:
 with tab4:
    st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
    df = df.loc[df['ano'] == ano_grafico]
-   #df_comp_long = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
    df_comp_long = df[df_leg_long['INDICADOR']].copy()
    comp_long = df_comp_long.corr(method='pearson')
    fig_idh_long = px.imshow(comp_long)
@@ -135,9 +134,7 @@ with tab4:
        cells = dict(values=[
             df_leg_long['INDICADOR'],
             df_leg_long['DESCRIÇÃO']
-            #['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env'],
-            #['Índice de Desenvolvimento Humano', 'Índice de Desenvolvimento Humano - Componente Longevidade', 'Esperança de vida ao nascer', 'Taxa de fecundidade', 'Mortalidade Infantil', 'Mortalidade até os 5 anos', 'Razão de dependência', 'Probabilidade de sobrevivência até 40 anos', 'Probabilidade de sobrevivência até 60 anos', 'Taxa de envelhecimento']
-       ],
+            ],
        align=['center','left']),
        columnwidth=[1,4]
        )
@@ -146,3 +143,22 @@ with tab4:
    st.plotly_chart(fig_idh_long_leg)
 with tab5:
   st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores xxxx, xxxxx e xxxx.")
+  df = df.loc[df['ano'] == ano_grafico]
+  df_comp_edu = df[df_leg_edu['INDICADOR']].copy()
+  comp_edu = df_comp_edu.corr(method='pearson')
+  fig_idh_edu = px.imshow(comp_edu)
+  fig_idh_edu.update_layout(title="Indicadores IDH Educação - " + str(ano_grafico))
+  fig_idh_edu_leg = go.Figure()
+  fig_idh_edu_leg.add_trace(
+     go.Table(
+       header = dict(values=['Indicador','Descrição']),
+       cells = dict(values=[
+            df_leg_edu['INDICADOR'],
+            df_leg_edu['DESCRIÇÃO']
+            ],
+       align=['center','left']),
+       columnwidth=[1,4]
+       )
+     )
+   st.plotly_chart(fig_idh_edu)
+   st.plotly_chart(fig_idh_edu_leg)
