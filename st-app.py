@@ -133,7 +133,7 @@ with tab4:
             ['Índice de Desenvolvimento Humano', 'Índice de Desenvolvimento Humano - Componente Longevidade', 'Esperança de vida ao nascer', 'Taxa de fecundidade', 'Mortalidade Infantil', 'Mortalidade até os 5 anos', 'Razão de dependência', 'Probabilidade de sobrevivência até 40 anos', 'Probabilidade de sobrevivência até 60 anos', 'Taxa de envelhecimento']
        ],
        align=['center','left']),
-       columnwidth=[10,10]
+       columnwidth=[1,2]
        )
      )
    st.plotly_chart(fig_idh_long)
