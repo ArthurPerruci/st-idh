@@ -33,9 +33,9 @@ df['regiao'] = df['uf'].apply(check_regiao)
 #carregamento de imagens
 idh_composicao = Image.open('assets/idh_composicao.png')
 idh_faixas = Image.open('assets/idh_faixas.png')
-fig_long_esp_vid = Image.open('assets/fig_long_esp_vid.gif')
-fig_long_sobr_40 = Image.open('assets/fig_long_sobr_40.gif')
-fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.gif')
+fig_long_esp_vid = Image.open('assets/fig_long_esp_vid.png')
+fig_long_sobr_40 = Image.open('assets/fig_long_sobr_40.png')
+fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.png')
 
 st.title('IDH')
 texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados\nProjeto Final da Disciplina Análise e Visualização de Dados\nEquipe 12: Arthur Perruci, Daniel Duarte, Enio Kilder'
