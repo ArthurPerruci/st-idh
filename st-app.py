@@ -141,6 +141,7 @@ with tab4:
      )
    st.plotly_chart(fig_idh_long)
    st.plotly_chart(fig_idh_long_leg)
+  
 with tab5:
   st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores xxxx, xxxxx e xxxx.")
   df = df.loc[df['ano'] == ano_grafico]
