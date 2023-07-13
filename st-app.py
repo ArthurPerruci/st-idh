@@ -161,5 +161,5 @@ with tab5:
        columnwidth=[1,4]
        )
      )
-   st.plotly_chart(fig_idh_edu)
-   st.plotly_chart(fig_idh_edu_leg)
+  st.plotly_chart(fig_idh_edu)
+  st.plotly_chart(fig_idh_edu_leg)
