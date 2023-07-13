@@ -113,8 +113,7 @@ with tab3:
    ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
    df = df.loc[df['ano'] == ano_grafico]
    fig_idh_gini = px.scatter(df, x="gini", y="idhm", color="regiao")
-   fig_idh_gini_tit = 'Relação IDH x GINI - ' + ano_grafico
-   fig_idh_gini.update_layout(title=fig_idh_gini_tit)
+   fig_idh_gini.update_layout(title="Relação IDH x GINI - " + str(ano_grafico))
    st.plotly_chart(fig_idh_gini)
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
 
@@ -124,8 +123,7 @@ with tab4:
    df_comp_long = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
    comp_long = df_comp_long.corr(method='pearson')
    fig_idh_long = px.imshow(comp_long)
-   fig_idh_long_tit = 'Indicadores IDH Longevidade - ' + ano_grafico
-   fig_idh_long.update_layout(title=fig_idh_long_tit)
+   fig_idh_long.update_layout(title="Indicadores IDH Longevidade - " + str(ano_grafico))
    fig_idh_long_leg = go.Figure()
    fig_idh_long_leg.add_trace(
      go.Table(
