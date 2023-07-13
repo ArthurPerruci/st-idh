@@ -31,8 +31,8 @@ def check_regiao(uf):
 df['regiao'] = df['uf'].apply(check_regiao)
 
 #carregamento de imagens
-idh_composicao = Image.open('idh_composicao.png')
-idh_faixas = Image.open('idh_faixas.png')
+idh_composicao = Image.open('assets/idh_composicao.png')
+idh_faixas = Image.open('assets/idh_faixas.png')
 
 st.title('IDH')
 texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados\nProjeto Final da Disciplina Análise e Visualização de Dados\nEquipe 12: Arthur Perruci, Daniel Duarte, Enio Kilder'
