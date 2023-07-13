@@ -33,6 +33,9 @@ df['regiao'] = df['uf'].apply(check_regiao)
 #carregamento de imagens
 idh_composicao = Image.open('assets/idh_composicao.png')
 idh_faixas = Image.open('assets/idh_faixas.png')
+fig_long_esp_vid = Image.open('assets/fig_long_esp_vid.gif')
+fig_long_sobr_40 = Image.open('assets/fig_long_sobr_40.gif')
+fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.gif')
 
 st.title('IDH')
 texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de Dados\nProjeto Final da Disciplina Análise e Visualização de Dados\nEquipe 12: Arthur Perruci, Daniel Duarte, Enio Kilder'
@@ -119,6 +122,9 @@ with tab3:
    fig_idh_gini.update_layout(title="Relação IDH x GINI - " + str(ano_grafico))
    st.plotly_chart(fig_idh_gini)
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
+   st.plotly_chart(fig_long_esp_vid)
+   st.plotly_chart(fig_long_sobr_40)
+   st.plotly_chart(fig_long_sobr_60)
 
 with tab4:
    st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
