@@ -132,7 +132,8 @@ with tab4:
             ['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env'],
             ['Índice de Desenvolvimento Humano', 'Índice de Desenvolvimento Humano - Componente Longevidade', 'Esperança de vida ao nascer', 'Taxa de fecundidade', 'Mortalidade Infantil', 'Mortalidade até os 5 anos', 'Razão de dependência', 'Probabilidade de sobrevivência até 40 anos', 'Probabilidade de sobrevivência até 60 anos', 'Taxa de envelhecimento']
        ],
-       align=['center','left'])
+       align=['center','left']),
+       columnwidth=[50,50]
        )
      )
    st.plotly_chart(fig_idh_long)
