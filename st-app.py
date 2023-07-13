@@ -122,10 +122,7 @@ with tab3:
    fig_idh_gini.update_layout(title="Relação IDH x GINI - " + str(ano_grafico))
    st.plotly_chart(fig_idh_gini)
    st.text("Os dados foram capturados em três anos base: 1991, 2000 e 2010.\nEscolha o ano a ser visualizado na barra à esquerda.\nNo gráfico cada esfera representa um município.\nClique no nome da Região para ocultá-la ou visualizá-la.")
-   st.image(fig_long_esp_vid)
-   st.image(fig_long_sobr_40)
-   st.image(fig_long_sobr_60)
-
+   
 with tab4:
    st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
    df = df.loc[df['ano'] == ano_grafico]
@@ -147,6 +144,9 @@ with tab4:
      )
    st.plotly_chart(fig_idh_long)
    st.plotly_chart(fig_idh_long_leg)
+   st.image(fig_long_esp_vid)
+   st.image(fig_long_sobr_40)
+   st.image(fig_long_sobr_60)
   
 with tab5:
   st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores expectativa de anos de estudos, percentual de estudantes sem atraso no ensino fundamental e básico, taxas de frequência escolar nos ensino médio e superior e percentual de pessoas com ensino fundamental completo.")
