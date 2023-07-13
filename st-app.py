@@ -8,6 +8,9 @@ import plotly.graph_objects as go
 
 #Leitura do data frame
 df = pd.read_csv("atlas.csv")
+df_leg_long = pd.read_csv("legendas_long.csv")
+df_leg_edu = pd.read_csv("legendas_edu.csv")
+df_leg_ren = pd.read_csv("legendas_ren.csv")
 
 #incorporação do dado Região ao dataframe
 uf = [[43, 42, 41], [35, 33, 32, 31], [29, 28, 27, 26, 25, 24, 23, 22, 21], [17, 15, 16, 14, 13, 12, 11], [51, 52, 53, 50]]
@@ -120,7 +123,8 @@ with tab3:
 with tab4:
    st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
    df = df.loc[df['ano'] == ano_grafico]
-   df_comp_long = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
+   #df_comp_long = df[['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env']].copy()
+   df_comp_long = df[df_leg_long['INDICADOR']].copy()
    comp_long = df_comp_long.corr(method='pearson')
    fig_idh_long = px.imshow(comp_long)
    fig_idh_long.update_layout(title="Indicadores IDH Longevidade - " + str(ano_grafico))
@@ -129,8 +133,10 @@ with tab4:
      go.Table(
        header = dict(values=['Indicador','Descrição']),
        cells = dict(values=[
-            ['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env'],
-            ['Índice de Desenvolvimento Humano', 'Índice de Desenvolvimento Humano - Componente Longevidade', 'Esperança de vida ao nascer', 'Taxa de fecundidade', 'Mortalidade Infantil', 'Mortalidade até os 5 anos', 'Razão de dependência', 'Probabilidade de sobrevivência até 40 anos', 'Probabilidade de sobrevivência até 60 anos', 'Taxa de envelhecimento']
+            df_leg_long['INDICADOR'],
+            df_leg_long['DESCRIÇÃO']
+            #['idhm','idhm_l', 'espvida', 'fectot', 'mort1', 'mort5', 'razdep', 'sobre40', 'sobre60', 't_env'],
+            #['Índice de Desenvolvimento Humano', 'Índice de Desenvolvimento Humano - Componente Longevidade', 'Esperança de vida ao nascer', 'Taxa de fecundidade', 'Mortalidade Infantil', 'Mortalidade até os 5 anos', 'Razão de dependência', 'Probabilidade de sobrevivência até 40 anos', 'Probabilidade de sobrevivência até 60 anos', 'Taxa de envelhecimento']
        ],
        align=['center','left']),
        columnwidth=[1,4]
