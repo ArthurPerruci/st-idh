@@ -143,7 +143,7 @@ with tab4:
    st.plotly_chart(fig_idh_long_leg)
   
 with tab5:
-  st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores xxxx, xxxxx e xxxx.")
+  st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores expectativa de anos de estudos, percentual de estudantes sem atraso no ensino fundamental e básico, taxas de frequência escolar nos ensino médio e superior e percentual de pessoas com ensino fundamental completo.")
   df = df.loc[df['ano'] == ano_grafico]
   df_comp_edu = df[df_leg_edu['INDICADOR']].copy()
   comp_edu = df_comp_edu.corr(method='pearson')
@@ -165,7 +165,7 @@ with tab5:
   st.plotly_chart(fig_idh_edu_leg)
 
 with tab6:
-  st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à renda com o idh-r e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores xxxx, xxxxx e xxxx.")
+  st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à renda com o idh-r e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores de renda per capta (em vários recortes) e percentual de população residente em domicílios com água encanada e banheiro.")
   df = df.loc[df['ano'] == ano_grafico]
   df_comp_ren = df[df_leg_ren['INDICADOR']].copy()
   comp_ren = df_comp_ren.corr(method='pearson')
