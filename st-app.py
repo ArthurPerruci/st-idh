@@ -36,7 +36,7 @@ texto1 = 'Cesar School - Curso de Especialização em Engenharia e Análise de D
 st.text(texto1)
 
 #Estruturação das tabs
-tab1, tab2, tab3, tab4 = st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "IDH - Longevidade"])
+tab1, tab2, tab3, tab4, tab5= st.tabs(["Entenda IDH", "IDH por Região", "IDH e GINI", "IDH - Longevidade", "IDH - Educação"])
 
 with tab1:
    st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
@@ -138,3 +138,5 @@ with tab4:
      )
    st.plotly_chart(fig_idh_long)
    st.plotly_chart(fig_idh_long_leg)
+with tab5:
+  st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores xxxx, xxxxx e xxxx.")
