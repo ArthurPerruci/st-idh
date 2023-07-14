@@ -19,13 +19,15 @@ fig_edu_nao_atraso = Image.open('assets/fig_edu_nao_atraso.png')
 st.set_page_config(page_title="IDH Educação", page_icon=":book:")
 st.title('IDH - Educação')
 
-col1, col2 = st.columns(2)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
      st.image(fig_edu_anos_est)
-     st.image(fig_edu_ens_comp)
 with col2:
      st.image(fig_edu_tx_freq)
+with col3     
+     st.image(fig_edu_ens_comp)
+with col4:     
      st.image(fig_edu_nao_atraso)
 
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores expectativa de anos de estudos, percentual de estudantes sem atraso no ensino fundamental e básico, taxas de frequência escolar nos ensino médio e superior e percentual de pessoas com ensino fundamental completo.")
