@@ -27,6 +27,7 @@ def check_regiao(uf):
 
 df['regiao'] = df['uf'].apply(check_regiao)
 
+st.set_page_config(page_title="IDH e GINI", page_icon=":📈:")
 st.title('IDH e GINI')
 st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
 st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://www.ipea.gov.br/desafios/index.php?option=com_content&id=2048:catid=28 )")
