@@ -25,7 +25,7 @@ with col1:
      st.image(fig_edu_anos_est)
 with col2:
      st.image(fig_edu_tx_freq)
-with col3     
+with col3:     
      st.image(fig_edu_ens_comp)
 with col4:     
      st.image(fig_edu_nao_atraso)
