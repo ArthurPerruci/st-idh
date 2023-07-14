@@ -26,7 +26,7 @@ sul, sudeste, nordeste, norte, centro_oeste = uf[0], uf[1], uf[2], uf[3], uf[4]
 #  else:
 #    return 'Norte'
 
-df['regiao'] = df['uf'].apply(st-app.check_regiao)
+df['regiao'] = df['uf'].apply(check_regiao)
 
 st.title('IDH e GINI')
 st.markdown("O Índice de Gini mede o grau de concentração de renda. Ele aponta a diferença entre os rendimentos dos mais pobres e dos mais ricos. Varia de zero a um, onde zero representa a situação de igualdade (todos têm a mesma renda) e um é extremo oposto (uma só pessoa detém toda a riqueza).")
