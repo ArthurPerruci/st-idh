@@ -12,6 +12,7 @@ df_leg_edu = pd.read_csv("data/legendas_edu.csv")
 
 #carregamento de imagens
 
+st.set_page_config(page_title="IDH Educação", page_icon=":book:")
 st.title('IDH - Educação')
 #st.image(fig_long_esp_vid)
 #st.image(fig_long_sobr_40)
