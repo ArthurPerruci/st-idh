@@ -30,7 +30,6 @@ df['regiao'] = df['uf'].apply(check_regiao)
 st.set_page_config(page_title="Evolução IDH nas regiões", page_icon=":📈:")
 
 st.title('A evolução do IDH nas regiões brasileiras no período de 1991 a 2010')
-st.sidebar.markdown('Filtros para o gráfico')
 df_sul = df.loc[df['regiao'] == 'Sul']
 df_sul_91 = df_sul.loc[df_sul['ano'] == 1991]
 df_sul_00 = df_sul.loc[df_sul['ano'] == 2000]  
