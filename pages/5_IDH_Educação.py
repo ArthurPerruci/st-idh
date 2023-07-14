@@ -11,12 +11,22 @@ df = pd.read_csv("data/atlas.csv")
 df_leg_edu = pd.read_csv("data/legendas_edu.csv")
 
 #carregamento de imagens
+fig_edu_anos_est = Image.open('assets/fig_edu_anos_est.png')
+fig_edu_tx_freq = Image.open('assets/fig_edu_tx_freq.png')
+fig_edu_ens_comp = Image.open('assets/fig_edu_ens_comp.png')
+fig_edu_nao_atraso = Image.open('assets/fig_edu_nao_atraso.png')
 
 st.set_page_config(page_title="IDH Educação", page_icon=":book:")
 st.title('IDH - Educação')
-#st.image(fig_long_esp_vid)
-#st.image(fig_long_sobr_40)
-#st.image(fig_long_sobr_60)
+
+col1, col2 = st.columns(2)
+
+with col1:
+     st.image(fig_edu_anos_est)
+     st.image(fig_edu_ens_comp)
+with col2:
+     st.image(fig_edu_tx_freq)
+     st.image(fig_edu_nao_atraso)
 
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores expectativa de anos de estudos, percentual de estudantes sem atraso no ensino fundamental e básico, taxas de frequência escolar nos ensino médio e superior e percentual de pessoas com ensino fundamental completo.")
 ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
