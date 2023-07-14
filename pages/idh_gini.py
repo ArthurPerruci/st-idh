@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 import plotly.graph_objects as go
+import sys
+sys.path.insert(0, pages/idh_regioes.py)
 import idh_regioes as idh_reg
 
 #Leitura do data frame
