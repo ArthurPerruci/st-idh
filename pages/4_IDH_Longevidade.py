@@ -17,9 +17,16 @@ fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.png')
 
 st.set_page_config(page_title="IDH - Longevidade", page_icon=":👴:")
 st.title("IDH - Longevidade")
-st.image(fig_long_esp_vid)
-st.image(fig_long_sobr_40)
-st.image(fig_long_sobr_60)
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+     st.image(fig_long_esp_vid)
+with col2:
+     st.image(fig_long_sobr_40)
+with col3:
+     st.image(fig_long_sobr_60)
+
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
 ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
