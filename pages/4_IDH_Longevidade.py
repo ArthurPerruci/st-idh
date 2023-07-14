@@ -18,7 +18,7 @@ fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.png')
 st.set_page_config(page_title="IDH - Longevidade", page_icon=":👴:")
 st.title("IDH - Longevidade")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
      st.image(fig_long_esp_vid)
