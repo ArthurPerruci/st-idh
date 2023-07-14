@@ -17,7 +17,7 @@ fig_ren_ag_ban = Image.open('assets/fig_ren_ag_ban.png')
 st.set_page_config(page_title="IDH Renda", page_icon=":coin:")
 st.title('IDH - Renda')
 
-col1, col2 = st.columns(2)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
      st.image(fig_ren_renpcap)
