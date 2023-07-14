@@ -10,6 +10,7 @@ import plotly.graph_objects as go
 idh_composicao = Image.open('assets/idh_composicao.png')
 idh_faixas = Image.open('assets/idh_faixas.png')
 
+st.title('Entenda o IDH')
 st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
 st.text("O Índice de Desenvolvimento Humano (IDH) compara indicadores de países\nnos itens riqueza, alfabetização, educação, esperança de vida, natalidade e outros,\ncom o intuito de avaliar o bem-estar de uma população")
 st.write("fonte: IPEA / Desafios do Desenvolvimento ( https://encurtador.com.br/eQS35 )")
