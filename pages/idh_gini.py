@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 import plotly.graph_objects as go
+import pages/idh_regioes.check_regiao
 
 #Leitura do data frame
 df = pd.read_csv("data/atlas.csv")
@@ -13,17 +14,17 @@ df = pd.read_csv("data/atlas.csv")
 uf = [[43, 42, 41], [35, 33, 32, 31], [29, 28, 27, 26, 25, 24, 23, 22, 21], [17, 15, 16, 14, 13, 12, 11], [51, 52, 53, 50]]
 sul, sudeste, nordeste, norte, centro_oeste = uf[0], uf[1], uf[2], uf[3], uf[4]
 
-def check_regiao(uf):
-  if sul.count(uf) > 0:
-    return 'Sul'
-  elif sudeste.count(uf) > 0:
-    return 'Sudeste'
-  elif centro_oeste.count(uf) > 0:
-    return 'Centro Oeste'
-  elif nordeste.count(uf) > 0:
-    return 'Nordeste'
-  else:
-    return 'Norte'
+#def check_regiao(uf):
+#  if sul.count(uf) > 0:
+#    return 'Sul'
+#  elif sudeste.count(uf) > 0:
+#    return 'Sudeste'
+#  elif centro_oeste.count(uf) > 0:
+#    return 'Centro Oeste'
+#  elif nordeste.count(uf) > 0:
+#    return 'Nordeste'
+#  else:
+#    return 'Norte'
 
 df['regiao'] = df['uf'].apply(check_regiao)
 
