@@ -27,6 +27,8 @@ def check_regiao(uf):
 
 df['regiao'] = df['uf'].apply(check_regiao)
 
+st.set_page_config(page_title="Evolução IDH nas regiões", page_icon=":📈:")
+
 st.title('A evolução do IDH nas regiões brasileiras no período de 1991 a 2010')
 st.markdown("O gráfico mostra a evolução dos valores médios de idhm das cinco regiões brasileiras. Fica evidente um processo de incremento dos valores de idh entre 1991 e 2010. Percebe-se também que os valores de idh nas regiões norte e nordeste são discretamente inferiores que os das demais regiões, da mesma maneira precebe-se que esta diferença diminuiu um pouco no período.")
 st.sidebar.markdown('Filtros para o gráfico')
