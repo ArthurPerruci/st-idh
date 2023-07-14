@@ -12,7 +12,7 @@ df_leg_ren = pd.read_csv("data/legendas_ren.csv")
 
 #carregamento de imagens
 
-
+st.set_page_config(page_title="IDH Renda", page_icon=":money:")
 st.title('IDH - Renda')
 #st.image(fig_long_esp_vid)
 #st.image(fig_long_sobr_40)
