@@ -15,7 +15,7 @@ fig_long_esp_vid = Image.open('assets/fig_long_esp_vid.png')
 fig_long_sobr_40 = Image.open('assets/fig_long_sobr_40.png')
 fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.png')
 
-s.t.title('IDH - Longevidade')
+st.title('IDH - Longevidade')
 st.image(fig_long_esp_vid)
 st.image(fig_long_sobr_40)
 st.image(fig_long_sobr_60)
