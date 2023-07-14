@@ -11,12 +11,18 @@ df = pd.read_csv("data/atlas.csv")
 df_leg_ren = pd.read_csv("data/legendas_ren.csv")
 
 #carregamento de imagens
+fig_ren_renpcap = Image.open('assets/fig_ren_renpcap.png')
+fig_ren_ag_ban = Image.open('assets/fig_ren_ag_ban.png')
 
 st.set_page_config(page_title="IDH Renda", page_icon=":money:")
 st.title('IDH - Renda')
-#st.image(fig_long_esp_vid)
-#st.image(fig_long_sobr_40)
-#st.image(fig_long_sobr_60)
+
+col1, col2 = st.columns(2)
+
+with col1:
+     st.image(fig_ren_renpcap)
+with col2:
+     st.image(fig_ren_ag_ban)
 
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à renda com o idh-r e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores de renda per capta (em vários recortes) e percentual de população residente em domicílios com água encanada e banheiro.")
 ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
