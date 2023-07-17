@@ -55,4 +55,4 @@ fig_idh_espvida = alt.Chart(df).mark_circle().encode(
      y='idhm',
      #color='regiao',
      ).interactive()
-st.altair_chart(fig_idh_espvida, them="streamlit", use_container_width=True)
+st.altair_chart(fig_idh_espvida, theme="streamlit", use_container_width=True)
