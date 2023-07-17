@@ -70,16 +70,16 @@ fig_idh_edu_leg.add_trace(
 st.plotly_chart(fig_idh_edu)
 st.plotly_chart(fig_idh_edu_leg)
 st.markdown("Expectativa de anos de estudo e IDH")
-fig_idh_eanosestudos = alt.Chart(df, title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico)).mark_circle().encode(
-     x=alt.X('e_anosestudos'),
-     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-     color='regiao',
-     ).interactive()
+fig_idh_e_anosestudos = alt.Chart(df, title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico)).mark_circle().encode(
+  x=alt.X('e_anosestudos'),
+  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+  color='regiao',
+  ).interactive()
 st.altair_chart(fig_idh_e_anosestudos, theme="streamlit", use_container_width=True)
 st.markdown("Taxa de frequência escolar e IDH")
-fig_idh_tfbmed = alt.Chart(df, title="Relação entre afrequência escolar bruta no ensino médio e IDH - " + str(ano_grafico)).mark_circle().encode(
-     x=alt.X('t_fbmed'), #, scale=alt.Scale(domain=[40,100])
-     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-     color='regiao',
-     ).interactive()
+fig_idh_t_fbmed = alt.Chart(df, title="Relação entre afrequência escolar bruta no ensino médio e IDH - " + str(ano_grafico)).mark_circle().encode(
+  x=alt.X('t_fbmed'), #, scale=alt.Scale(domain=[40,100])
+  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+  color='regiao',
+  ).interactive()
 st.altair_chart(fig_idh_t_fbmed, theme="streamlit", use_container_width=True)
