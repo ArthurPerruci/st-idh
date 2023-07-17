@@ -78,22 +78,21 @@ fig_idh_e_anosestudo = alt.Chart(df, title="Relação entre a expectativa de ano
   ).interactive()
 st.altair_chart(fig_idh_e_anosestudo, theme="streamlit", use_container_width=True)
 st.markdown("Taxa de frequência escolar e IDH")
-col1, col2, col3 = st.columns(3)
-with col1:
-  fig_idh_t_fbfund = alt.Chart(df, title="Frequência escolar bruta no ensino fundamental e IDH - " + str(ano_grafico)).mark_circle().encode(
-    x=alt.X('t_fbfund'),
-    y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-    ).interactive()
-  st.altair_chart(fig_idh_t_fbfund, theme="streamlit", use_container_width=True)
-with col2:
-  fig_idh_t_fbmed = alt.Chart(df, title="Frequência escolar bruta no ensino médio e IDH - " + str(ano_grafico)).mark_circle().encode(
-    x=alt.X('t_fbmed'),
-    y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-    ).interactive()
+fig_idh_t_fbfund = alt.Chart(df, title="Frequência escolar bruta no ensino fundamental e IDH - " + str(ano_grafico)).mark_circle().encode(
+  x=alt.X('t_fbfund'),
+  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+  color='regiao',
+  ).interactive()
+st.altair_chart(fig_idh_t_fbfund, theme="streamlit", use_container_width=True)
+fig_idh_t_fbmed = alt.Chart(df, title="Frequência escolar bruta no ensino médio e IDH - " + str(ano_grafico)).mark_circle().encode(
+  x=alt.X('t_fbmed'),
+  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+  color='regiao',
+  ).interactive()
   st.altair_chart(fig_idh_t_fbmed, theme="streamlit", use_container_width=True)
-with col3:
-  fig_idh_t_fbsuper = alt.Chart(df, title="Frequência escolar bruta no ensino superior e IDH - " + str(ano_grafico)).mark_circle().encode(
-    x=alt.X('t_fbsuper'),
-    y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-    ).interactive()
-  st.altair_chart(fig_idh_t_fbsuper, theme="streamlit", use_container_width=True)
+fig_idh_t_fbsuper = alt.Chart(df, title="Frequência escolar bruta no ensino superior e IDH - " + str(ano_grafico)).mark_circle().encode(
+  x=alt.X('t_fbsuper'),
+  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+  color='regiao',
+  ).interactive()
+st.altair_chart(fig_idh_t_fbsuper, theme="streamlit", use_container_width=True)
