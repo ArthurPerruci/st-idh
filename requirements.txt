@@ -3,5 +3,6 @@ numpy
 regex
 plotly
 plotly.express
+plotly.subplots
 matplotlib
 altair
