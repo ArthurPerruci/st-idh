@@ -101,7 +101,7 @@ fig_idh_comp.add_trace(go.Scatter(x=df['t_med18a24'], y=df['idhm'], mode="marker
 fig_idh_comp.add_trace(go.Scatter(x=df['t_med18m'], y=df['idhm'], mode="markers", name="população de 18 anos ou mais  com ensino médio completo"), row=3, col=3)
 fig_idh_comp.add_trace(go.Scatter(x=df['t_med19a21'], y=df['idhm'], mode="markers", name="população de 19 a 21 anos com ensino médio completo"), row=4, col=1)
 fig_idh_comp.add_trace(go.Scatter(x=df['t_med25m'], y=df['idhm'], mode="markers", name="população de 25 anos ou mais com ensino médio completo"), row=4, col=2)
-fig_idh_comp.add_trace(go.Scatter(x=df['t_super25'], y=df['idhm'], mode="markers", name="população de 25 anos ou mais com ensino supeior completo"), row=4, col=3)
+fig_idh_comp.add_trace(go.Scatter(x=df['t_super25m'], y=df['idhm'], mode="markers", name="população de 25 anos ou mais com ensino supeior completo"), row=4, col=3)
 fig_idh_comp.update_xaxes(title_text="% da população com ensino completo", row=4, col=2)
 fig_idh_comp.update_yaxes(title_text="Idhm", row=2, col=1)
 st.plotly_chart(fig_idh_comp)
