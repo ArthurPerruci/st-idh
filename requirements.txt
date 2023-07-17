@@ -4,3 +4,4 @@ regex
 plotly
 plotly.express
 matplotlib
+altair
