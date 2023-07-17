@@ -10,6 +10,24 @@ import plotly.graph_objects as go
 df = pd.read_csv("data/atlas.csv")
 df_leg_ren = pd.read_csv("data/legendas_ren.csv")
 
+#incorporação do dado Região ao dataframe
+uf = [[43, 42, 41], [35, 33, 32, 31], [29, 28, 27, 26, 25, 24, 23, 22, 21], [17, 15, 16, 14, 13, 12, 11], [51, 52, 53, 50]]
+sul, sudeste, nordeste, norte, centro_oeste = uf[0], uf[1], uf[2], uf[3], uf[4]
+
+def check_regiao(uf):
+  if sul.count(uf) > 0:
+    return 'Sul'
+  elif sudeste.count(uf) > 0:
+    return 'Sudeste'
+  elif centro_oeste.count(uf) > 0:
+    return 'Centro Oeste'
+  elif nordeste.count(uf) > 0:
+    return 'Nordeste'
+  else:
+    return 'Norte'
+
+df['regiao'] = df['uf'].apply(check_regiao)
+
 #carregamento de imagens
 fig_ren_renpcap = Image.open('assets/fig_ren_renpcap.png')
 fig_ren_ag_ban = Image.open('assets/fig_ren_ag_ban.png')
@@ -45,3 +63,14 @@ fig_idh_ren_leg.add_trace(
      )
 st.plotly_chart(fig_idh_ren)
 st.plotly_chart(fig_idh_ren_leg)
+
+st.markdown("Renda per capita e IDH")
+fig_idh_rpcm = go.Figure()
+fig_idh_rpcm.update_layout(title="Relação renda per capita e IDH - " + str(ano_grafico))
+fig_idh_rpcm.add_trace(go.Scatter(x=df['corte1'], y=df['idhm'], mode="markers", name="renda máxima do 1º quinto mais pobre"))
+fig_idh_rpcm.add_trace(go.Scatter(x=df['corte2'], y=df['idhm'], mode="markers", name="renda máxima do 2º quinto mais pobre"))
+fig_idh_rpcm.add_trace(go.Scatter(x=df['corte3'], y=df['idhm'], mode="markers", name="renda máxima do 3º quinto mais pobre"))
+fig_idh_rpcm.add_trace(go.Scatter(x=df['corte4'], y=df['idhm'], mode="markers", name="renda máxima do 4º quinto mais pobre"))
+fig_idh_rpcm.add_trace(go.Scatter(x=df['corte9'], y=df['idhm'], mode="markers", name="renda mínima do décimo mais pobre"))
+fig_idh_rpcm.update_xaxes(title_text="renda per capita")
+fig_idh_rpcm.update_yaxes(title_text="Idhm")
