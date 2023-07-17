@@ -79,28 +79,12 @@ fig_idh_e_anosestudo = alt.Chart(df, title="Relação entre a expectativa de ano
   ).interactive()
 st.altair_chart(fig_idh_e_anosestudo, theme="streamlit", use_container_width=True)
 st.markdown("Taxa de frequência escolar e IDH")
-fig_idh_t_fbfund = alt.Chart(df, title="Frequência escolar bruta no ensino fundamental e IDH - " + str(ano_grafico)).mark_circle().encode(
-  x=alt.X('t_fbfund'),
-  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-  color='regiao',
-  ).interactive()
-st.altair_chart(fig_idh_t_fbfund, theme="streamlit", use_container_width=True)
-fig_idh_t_fbmed = alt.Chart(df, title="Frequência escolar bruta no ensino médio e IDH - " + str(ano_grafico)).mark_circle().encode(
-  x=alt.X('t_fbmed'),
-  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-  color='regiao',
-  ).interactive()
-st.altair_chart(fig_idh_t_fbmed, theme="streamlit", use_container_width=True)
-fig_idh_t_fbsuper = alt.Chart(df, title="Frequência escolar bruta no ensino superior e IDH - " + str(ano_grafico)).mark_circle().encode(
-  x=alt.X('t_fbsuper'),
-  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-  color='regiao',
-  ).interactive()
-st.altair_chart(fig_idh_t_fbsuper, theme="streamlit", use_container_width=True)
 fig_idh_freq = make_subplots(rows=1, cols=3)
 fig_idh_freq.add_trace(go.Scatter(x=df['t_fbfund'], y=df['idhm'], mode="markers"), row=1, col=1)
 fig_idh_freq.add_trace(go.Scatter(x=df['t_fbmed'], y=df['idhm'], mode="markers"), row=1, col=2)
 fig_idh_freq.add_trace(go.Scatter(x=df['t_fbsuper'], y=df['idhm'], mode="markers"), row=1, col=3)
+fig_idh_freq.update_xaxes(title_text="Frequência bruta", row=1, col=2)
+fig_idh_freq.update_yaxes(title_text="Idhm", row=1, col=1)
 st.plotly_chart(fig_idh_freq)
 
 
