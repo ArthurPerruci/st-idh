@@ -69,8 +69,8 @@ st.plotly_chart(fig_idh_long)
 st.plotly_chart(fig_idh_long_leg)
 st.markdown("Esperança de Vida ao Nascer e IDH")
 fig_idh_espvida = alt.Chart(df, title="Relação entre Esperança de vida ao Nascer e IDH - " + str(ano_grafico)).mark_circle().encode(
-     x=alt.X('espvida', scale=alt.Scale(domain=[50,90])),
-     y=alt.Y('idhm'),
+     x=alt.X('espvida', scale=alt.Scale(domain=[50,80])),
+     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
      color='regiao',
      ).interactive()
 st.altair_chart(fig_idh_espvida, theme="streamlit", use_container_width=True)
