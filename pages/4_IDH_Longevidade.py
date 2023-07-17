@@ -50,10 +50,9 @@ fig_idh_long_leg.add_trace(
 st.plotly_chart(fig_idh_long)
 st.plotly_chart(fig_idh_long_leg)
 st.markdown("Esperança de Vida ao Nascer e IDH")
-fig_idh_espvida = alt.Chart(df).mark_circle().encode(
+fig_idh_espvida = alt.Chart(df, title="Relação entre Esperança de vida ao Nascer e IDH - " + atr(ano_grafico)).mark_circle().encode(
      x='espvida',
      y='idhm',
      #color='regiao',
      ).interactive()
-fig_idh_espvida.update_Layout(title="Relação entre Esperança de vida ao Nascer e IDH - " + atr(ano_grafico))
 st.altair_chart(fig_idh_espvida, theme="streamlit", use_container_width=True)
