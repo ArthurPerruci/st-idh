@@ -74,3 +74,10 @@ fig_idh_espvida = alt.Chart(df, title="Relação entre Esperança de vida ao Nas
      color='regiao',
      ).interactive()
 st.altair_chart(fig_idh_espvida, theme="streamlit", use_container_width=True)
+st.markdown("Probabilidade de sobrevivência até os 40 anos e IDH")
+fig_idh_sobre40 = alt.Chart(df, title="Relação entre a probabilidade de sobrevivência até os 40 anos e IDH - " + str(ano_grafico)).mark_circle().encode(
+     x=alt.X('sobre40'), #, scale=alt.Scale(domain=[50,80])
+     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+     color='regiao',
+     ).interactive()
+st.altair_chart(fig_idh_sobre40, theme="streamlit", use_container_width=True)
