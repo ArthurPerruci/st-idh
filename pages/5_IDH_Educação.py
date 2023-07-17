@@ -89,7 +89,7 @@ fig_idh_t_fbmed = alt.Chart(df, title="Frequência escolar bruta no ensino médi
   y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
   color='regiao',
   ).interactive()
-  st.altair_chart(fig_idh_t_fbmed, theme="streamlit", use_container_width=True)
+st.altair_chart(fig_idh_t_fbmed, theme="streamlit", use_container_width=True)
 fig_idh_t_fbsuper = alt.Chart(df, title="Frequência escolar bruta no ensino superior e IDH - " + str(ano_grafico)).mark_circle().encode(
   x=alt.X('t_fbsuper'),
   y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
