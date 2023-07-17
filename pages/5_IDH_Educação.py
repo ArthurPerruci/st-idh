@@ -98,9 +98,9 @@ fig_idh_t_fbsuper = alt.Chart(df, title="Frequência escolar bruta no ensino sup
   ).interactive()
 st.altair_chart(fig_idh_t_fbsuper, theme="streamlit", use_container_width=True)
 fig_idh_freq = make_subplots(rows=1, cols=3)
-fig_idh_freq.add_trace(fig_idh_t_fbfund, row=1, col=1)
-fig_idh_freq.add_trace(fig_idh_t_fbmed, row=1, col=2)
-fig_idh_freq.add_trace(fig_idh_t_fbsuper, row=1, col=3)
+fig_idh_freq.add_trace(fig_idh_t_fbfund, theme="streamlit", use_container_width=True, row=1, col=1)
+fig_idh_freq.add_trace(fig_idh_t_fbmed, theme="streamlit", use_container_width=True, row=1, col=2)
+fig_idh_freq.add_trace(fig_idh_t_fbsuper, theme="streamlit", use_container_width=True, row=1, col=3)
 st.plotly_chart(fig_idh_freq)
 
 
