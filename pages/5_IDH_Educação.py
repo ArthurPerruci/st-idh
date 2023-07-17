@@ -97,4 +97,11 @@ fig_idh_comp.add_trace(go.Scatter(x=df['t_super25m'], y=df['idhm'], mode="marker
 fig_idh_comp.update_xaxes(title_text="% da população com ensino completo")
 fig_idh_comp.update_yaxes(title_text="Idhm")
 st.plotly_chart(fig_idh_comp)
-
+st.markdown("Atraso escolar e IDH")
+fig_idh_nao_atraso = go.Figure()
+fig_idh_nao_atraso.update_layout(title="Relação entre o percentual da população em atraso escolar e o IDH - " + str(ano_grafico))
+fig_idh_nao_atraso.add_trace(go.Scatter(x=df['t_atraso_0_fund'], y=df['idhm'], mode="markers", name="população de 6 a 14 anos sem atraso no ensino fundamental completo"))
+fig_idh_nao_atraso.add_trace(go.Scatter(x=df['t_atraso_0_med'], y=df['idhm'], mode="markers", name="população de 15 a 17 anos sem atraso no ensino médio completo"))
+fig_idh_nao_atraso.update_xaxes(title_text="% da população em atraso")
+fig_idh_nao_atraso.update_yaxes(title_text="Idhm")
+st.plotly_chart(fig_idh_nao_atraso)
