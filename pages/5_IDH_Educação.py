@@ -71,8 +71,8 @@ fig_idh_edu_leg.add_trace(
 st.plotly_chart(fig_idh_edu)
 st.plotly_chart(fig_idh_edu_leg)
 st.markdown("Expectativa de anos de estudo e IDH")
-fig_idh_e_anosestudos = alt.Chart(df, title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico)).mark_circle().encode(
-  x=alt.X('e_anosestudos'),
+fig_idh_e_anosestudo = alt.Chart(df, title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico)).mark_circle().encode(
+  x=alt.X('e_anosestudo'),
   y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
   color='regiao',
   ).interactive()
