@@ -76,7 +76,7 @@ fig_idh_e_anosestudo = alt.Chart(df, title="Relação entre a expectativa de ano
   y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
   color='regiao',
   ).interactive()
-st.altair_chart(fig_idh_e_anosestudos, theme="streamlit", use_container_width=True)
+st.altair_chart(fig_idh_e_anosestudo, theme="streamlit", use_container_width=True)
 st.markdown("Taxa de frequência escolar e IDH")
 fig_idh_t_fbmed = alt.Chart(df, title="Relação entre afrequência escolar bruta no ensino médio e IDH - " + str(ano_grafico)).mark_circle().encode(
   x=alt.X('t_fbmed'), #, scale=alt.Scale(domain=[40,100])
