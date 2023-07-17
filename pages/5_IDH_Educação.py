@@ -80,6 +80,7 @@ fig_idh_e_anosestudo = alt.Chart(df, title="Relação entre a expectativa de ano
 st.altair_chart(fig_idh_e_anosestudo, theme="streamlit", use_container_width=True)
 st.markdown("Taxa de frequência escolar e IDH")
 fig_idh_freq = make_subplots(rows=1, cols=3)
+fig_idh_freq.update_layout(title="Relação entre a frequência escolar bruta e o IDH - " + str(ano_grafico))
 fig_idh_freq.add_trace(go.Scatter(x=df['t_fbfund'], y=df['idhm'], mode="markers", name="Ensino Fundamental"), row=1, col=1)
 fig_idh_freq.add_trace(go.Scatter(x=df['t_fbmed'], y=df['idhm'], mode="markers", name="Ensino Médio"), row=1, col=2)
 fig_idh_freq.add_trace(go.Scatter(x=df['t_fbsuper'], y=df['idhm'], mode="markers", name="Ensino Superior"), row=1, col=3)
