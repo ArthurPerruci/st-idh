@@ -55,4 +55,5 @@ fig_idh_espvida = alt.Chart(df).mark_circle().encode(
      y='idhm',
      #color='regiao',
      ).interactive()
+fig_idh_espvida.update_Layout(title="Relação entre Esperança de vida ao Nascer e IDH - " + atr(ano_grafico))
 st.altair_chart(fig_idh_espvida, theme="streamlit", use_container_width=True)
