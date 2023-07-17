@@ -10,6 +10,24 @@ import plotly.graph_objects as go
 df = pd.read_csv("data/atlas.csv")
 df_leg_edu = pd.read_csv("data/legendas_edu.csv")
 
+#incorporação do dado Região ao dataframe
+uf = [[43, 42, 41], [35, 33, 32, 31], [29, 28, 27, 26, 25, 24, 23, 22, 21], [17, 15, 16, 14, 13, 12, 11], [51, 52, 53, 50]]
+sul, sudeste, nordeste, norte, centro_oeste = uf[0], uf[1], uf[2], uf[3], uf[4]
+
+def check_regiao(uf):
+  if sul.count(uf) > 0:
+    return 'Sul'
+  elif sudeste.count(uf) > 0:
+    return 'Sudeste'
+  elif centro_oeste.count(uf) > 0:
+    return 'Centro Oeste'
+  elif nordeste.count(uf) > 0:
+    return 'Nordeste'
+  else:
+    return 'Norte'
+
+df['regiao'] = df['uf'].apply(check_regiao)
+
 #carregamento de imagens
 fig_edu_anos_est = Image.open('assets/fig_edu_anos_est.png')
 fig_edu_tx_freq = Image.open('assets/fig_edu_tx_freq.png')
@@ -51,3 +69,20 @@ fig_idh_edu_leg.add_trace(
      )
 st.plotly_chart(fig_idh_edu)
 st.plotly_chart(fig_idh_edu_leg)
+
+st.markdown("Expectativa de anos de estudo e IDH")
+fig_idh_e_anosestudos = alt.Chart(df, title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico)).mark_circle().encode(
+     x=alt.X('e_anosestudo'), #, scale=alt.Scale(domain=[40,100])
+     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+     color='regiao',
+     ).interactive()
+st.altair_chart(fig_idh_e_anosestudos, theme="streamlit", use_container_width=True)
+
+st.markdown("Taxa de frequência escolar e IDH")
+fig_idh_t_fbmed = alt.Chart(df, title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico)).mark_circle().encode(
+     x=alt.X('t_fbmed'), #, scale=alt.Scale(domain=[40,100])
+     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
+     color='regiao',
+     ).interactive()
+st.altair_chart(fig_idh_t_fbmed, theme="streamlit", use_container_width=True)
+
