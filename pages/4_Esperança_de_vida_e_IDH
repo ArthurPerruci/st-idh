@@ -34,10 +34,7 @@ fig_long_esp_vid = Image.open('assets/fig_long_esp_vid.png')
 st.set_page_config(page_title="Esperança de Vida e IDH", page_icon=":👴:")
 st.title("Esperança de Vida ao Nascer e IDH")
 
-col1, col2, col3, col4 = st.columns(4)
-
-with col1:
-     st.image(fig_long_esp_vid)
+st.image(fig_long_esp_vid)
 
 ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
