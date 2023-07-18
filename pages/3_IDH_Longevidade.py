@@ -7,6 +7,15 @@ from PIL import Image
 import plotly.graph_objects as go
 import altair as alt
 
+show_pages([
+    Page("st-app.py", "Início", ":home:"),
+    Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH", ":curious:"),
+    Page("pages/2_Evolução_do_Idh_nas_regioes.py", "Evolução do IDH nas Regiões", ":plot:"),
+    Page("pages/3_IDH_Longevidade.py", "IDH - Longevidade", ":old_man:"),
+    Page("pages/4_IDH_Educação.py", "IDH - Educação", ":books:"),
+    Page("pages/5_IDH_Renda.py", "IDH - Renda", ":coin:"),
+  ])
+
 #Leitura do data frame
 df = pd.read_csv("data/atlas.csv")
 df_leg_long = pd.read_csv("data/legendas_long.csv")
@@ -35,7 +44,7 @@ fig_long_sobr_40 = Image.open('assets/fig_long_sobr_40.png')
 fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.png')
 
 #Início da página
-st.set_page_config(page_title="IDH - Longevidade", page_icon=":👴:")
+#st.set_page_config(page_title="IDH - Longevidade", page_icon=":👴:")
 st.title("IDH - Longevidade")
 
 #Colunas para as imagens
