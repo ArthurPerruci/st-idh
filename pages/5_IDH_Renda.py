@@ -7,12 +7,12 @@ from PIL import Image
 import plotly.graph_objects as go
 
 show_pages([
-    Page("st-app.py", "Início", ":home:"),
-    Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH", ":curious:"),
-    Page("pages/2_Evolução_do_Idh_nas_regioes.py", "Evolução do IDH nas Regiões", ":plot:"),
-    Page("pages/3_IDH_Longevidade.py", "IDH - Longevidade", ":old_man:"),
-    Page("pages/4_IDH_Educação.py", "IDH - Educação", ":books:"),
-    Page("pages/5_IDH_Renda.py", "IDH - Renda", ":coin:"),
+    Page("st-app.py", "Início"),
+    Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH"),
+    Page("pages/2_Evolução_do_Idh_nas_regioes.py", "Evolução do IDH nas Regiões"),
+    Page("pages/3_IDH_Longevidade.py", "IDH - Longevidade"),
+    Page("pages/4_IDH_Educação.py", "IDH - Educação"),
+    Page("pages/5_IDH_Renda.py", "IDH - Renda"),
   ])
 
 #Leitura do data frame
