@@ -88,6 +88,7 @@ fig_idh_freq.update_layout(title="Relação entre a frequência escolar líquida
 fig_idh_freq.add_trace(go.Scattergl(x=df['t_flfund'], y=df['idhm'], mode="markers", name="Ensino Fundamental"))
 fig_idh_freq.add_trace(go.Scattergl(x=df['t_flmed'], y=df['idhm'], mode="markers", name="Ensino Médio"))
 fig_idh_freq.add_trace(go.Scattergl(x=df['t_flsuper'], y=df['idhm'], mode="markers", name="Ensino Superior"))
+fig_idh_freq.update_layout(legend=dict(x=0, y=1))
 fig_idh_freq.update_xaxes(title_text="Frequência líquida")
 fig_idh_freq.update_yaxes(title_text="Idhm")
 st.plotly_chart(fig_idh_freq)
