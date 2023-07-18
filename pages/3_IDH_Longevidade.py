@@ -47,7 +47,7 @@ with col3:
      st.image(fig_long_sobr_60)
 
 #Gráfico mapa de calor indicadores longevidade e idh
-st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
+st.markdown("No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. Destacam-se como mais fortes as relações do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
 ano_grafico = st.sidebar.radio('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
 df_comp_long = df[df_leg_long['INDICADOR']].copy()
