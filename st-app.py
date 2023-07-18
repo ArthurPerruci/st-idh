@@ -6,8 +6,6 @@ import PIL
 from PIL import Image
 import plotly.graph_objects as go
 
-st.sidebar.title("Início")
-
 fig_cesar = Image.open('assets/marca_cesar_school.png')
 fig_idh_composicao = Image.open('assets/idh_composicao.png')
 
