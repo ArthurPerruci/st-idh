@@ -10,8 +10,6 @@ from st_pages import Page, show_pages, add_page_title
 fig_cesar = Image.open('assets/marca_cesar_school.png')
 fig_idh_composicao = Image.open('assets/idh_composicao.png')
 
-add_page_title()
-
 show_pages([
     Page("st-app.py", "Início", ":home:"),
     Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH", ":curious:"),
