@@ -51,7 +51,7 @@ with col4:
      st.image(fig_edu_nao_atraso)
 
 #Gráfico Mapa de calor indicadores educação e idhm
-st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores expectativa de anos de estudos, percentual de estudantes sem atraso no ensino fundamental e básico, taxas de frequência escolar nos ensino médio e superior e percentual de pessoas com ensino fundamental completo.")
+st.markdown("No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. Destacam-se como mais fortes as relações do idhm com os indicadores expectativa de anos de estudos, percentual de estudantes sem atraso no ensino fundamental e básico, taxas de frequência escolar nos ensino médio e superior e percentual de pessoas com ensino fundamental completo.")
 ano_grafico = st.sidebar.radio('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
 df_comp_edu = df[df_leg_edu['INDICADOR']].copy()
