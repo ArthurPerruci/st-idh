@@ -73,7 +73,7 @@ st.plotly_chart(fig_idh_long_leg)
 #Gráfico scatter esperança de vida ao nascer e idh
 st.markdown("Esperança de Vida ao Nascer e IDH")
 fig_idh_espvida = go.Figure()
-#fig_idh_espvida.add_trace(go.Scattergl(x=df['espvida'], y=df['idhm'], mode="markers"))
+fig_idh_espvida.add_trace(go.Scattergl(x=df['espvida'], y=df['idhm'], mode="markers", name="todos"))
 fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Sul']['espvida'], y=df['idhm'], mode="markers", name="Sul"))
 fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Sudeste']['espvida'], y=df['idhm'], mode="markers", name="Sudeste"))
 fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Centro Oeste']['espvida'], y=df['idhm'], mode="markers", name="Centro Oeste"))
