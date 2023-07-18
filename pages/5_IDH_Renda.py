@@ -45,7 +45,7 @@ with col2:
 
 #Gráfico mapa de calor indicadores renda e idh
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à renda com o idh-r e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores de renda per capta (em vários recortes) e percentual de população residente em domicílios com água encanada e banheiro.")
-ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
+ano_grafico = st.sidebar.radio('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
 df_comp_ren = df[df_leg_ren['INDICADOR']].copy()
 comp_ren = df_comp_ren.corr(method='pearson')
