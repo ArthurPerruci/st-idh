@@ -5,15 +5,9 @@ import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 import plotly.graph_objects as go
+from st_pages import show_pages_from_config
 
-show_pages([
-    Page("st-app.py", "Início", ":home:"),
-    Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH", ":curious:"),
-    Page("pages/2_Evolução_do_Idh_nas_regioes.py", "Evolução do IDH nas Regiões", ":plot:"),
-    Page("pages/3_IDH_Longevidade.py", "IDH - Longevidade", ":old_man:"),
-    Page("pages/4_IDH_Educação.py", "IDH - Educação", ":books:"),
-    Page("pages/5_IDH_Renda.py", "IDH - Renda", ":coin:"),
-  ])
+show_pages_from_config()
 
 #Leitura do data frame
 df = pd.read_csv("data/atlas.csv")
@@ -35,8 +29,6 @@ def check_regiao(uf):
     return 'Norte'
 
 df['regiao'] = df['uf'].apply(check_regiao)
-
-#st.set_page_config(page_title="Evolução IDH nas regiões", page_icon=":📈:")
 
 st.title('A evolução do IDH nas regiões brasileiras no período de 1991 a 2010')
 df_sul = df.loc[df['regiao'] == 'Sul']
