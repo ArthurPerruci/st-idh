@@ -6,4 +6,3 @@ plotly.express
 matplotlib
 altair
 st_pages
-st-pages
