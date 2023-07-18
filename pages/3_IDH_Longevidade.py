@@ -34,11 +34,12 @@ fig_long_esp_vid = Image.open('assets/fig_long_esp_vid.png')
 fig_long_sobr_40 = Image.open('assets/fig_long_sobr_40.png')
 fig_long_sobr_60 = Image.open('assets/fig_long_sobr_60.png')
 
+#Início da página
 st.set_page_config(page_title="IDH - Longevidade", page_icon=":👴:")
 st.title("IDH - Longevidade")
 
+#Colunas para as imagens
 col1, col2, col3, col4 = st.columns(4)
-
 with col1:
      st.image(fig_long_esp_vid)
 with col2:
@@ -46,6 +47,7 @@ with col2:
 with col3:
      st.image(fig_long_sobr_60)
 
+#Gráfico mapa de calor indicadores longevidade e idh
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à longevidade com o idh-l e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores Esperança de vida ao nascer, Probabilidade de sobrevivência até 40 anos e Probabilidade de sobrevivência até 60 anos.")
 ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
@@ -67,13 +69,16 @@ fig_idh_long_leg.add_trace(
      )
 st.plotly_chart(fig_idh_long)
 st.plotly_chart(fig_idh_long_leg)
+
+#Gráfico scatter esperança de vida ao nascer e idh
 st.markdown("Esperança de Vida ao Nascer e IDH")
-fig_idh_espvida = alt.Chart(df, title="Relação entre Esperança de vida ao Nascer e IDH - " + str(ano_grafico)).mark_circle().encode(
-     x=alt.X('espvida', scale=alt.Scale(domain=[50,80])),
-     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-     color='regiao',
-     ).interactive()
-st.altair_chart(fig_idh_espvida, theme="streamlit", use_container_width=True)
+fig_idh_espvida = go.Figure()
+fig_idh_espvida.add_trace(go.Scattergl(x=df['espvida'], y=df['idhm'], mode="markers", color="regiao"))
+fig_idh_espvida.layout_update(title="Relação entre Esperança de vida ao Nascer e IDH - " + str(ano_grafico))
+fig_idh_espvida.xaxes_update(title_text="Esperança de vida ao nascer")
+fig_idh_espvida.xaxes_update(title_text="Idhm")
+st.plotly_chart(fig_idh_espvida)
+
 st.markdown("Probabilidade de sobrevivência até os 40 anos e IDH")
 fig_idh_sobre40 = alt.Chart(df, title="Relação entre a probabilidade de sobrevivência até os 40 anos e IDH - " + str(ano_grafico)).mark_circle().encode(
      x=alt.X('sobre40', scale=alt.Scale(domain=[60,100])),
