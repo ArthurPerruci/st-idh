@@ -7,9 +7,16 @@ from PIL import Image
 import plotly.graph_objects as go
 import altair as alt
 from plotly.subplots import make_subplots
-from st_pages import show_pages_from_config
+from st_pages import Page, show_pages
 
-show_pages_from_config()
+show_pages([
+  Page("st-app.py", "Início"),
+  Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH"),
+  Page("pages/2_Evolução_do_Idh_nas_regioes.py", "Evolução do IDH nas Regiões"),
+  Page("pages/3_IDH_Longevidade.py", "IDH - Longevidade"),
+  Page("pages/4_IDH_Educação.py", "IDH - Educação"),
+  Page("pages/5_IDH_Renda.py", "IDH - Renda"),
+  ])
 
 #Leitura do data frame
 df = pd.read_csv("data/atlas.csv")
