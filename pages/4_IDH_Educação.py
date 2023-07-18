@@ -79,7 +79,7 @@ st.markdown("Expectativa de anos de estudo e IDH")
 fig_idh_e_anosestudo = go.Figure()
 fig_idh_e_anosestudo.update_layout(title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico))
 fig_idh_e_anosestudo.add_trace(go.Scatter(x=df['e_anosestudo'], y=df['idhm'], mode="markers"))
-fig_idh_e_anosestudo.update_xaxaes(title_text="Expectativa de anos de estudo")
+fig_idh_e_anosestudo.update_xaxes(title_text="Expectativa de anos de estudo")
 fig_idh_e_anosestudo.update_yaxes(title_text="Idhm")
 st.plotly_chart(fig_idh_e_anosestudo)
 
