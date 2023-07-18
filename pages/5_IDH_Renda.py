@@ -6,6 +6,15 @@ import PIL
 from PIL import Image
 import plotly.graph_objects as go
 
+show_pages([
+    Page("st-app.py", "Início", ":home:"),
+    Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH", ":curious:"),
+    Page("pages/2_Evolução_do_Idh_nas_regioes.py", "Evolução do IDH nas Regiões", ":plot:"),
+    Page("pages/3_IDH_Longevidade.py", "IDH - Longevidade", ":old_man:"),
+    Page("pages/4_IDH_Educação.py", "IDH - Educação", ":books:"),
+    Page("pages/5_IDH_Renda.py", "IDH - Renda", ":coin:"),
+  ])
+
 #Leitura do data frame
 df = pd.read_csv("data/atlas.csv")
 df_leg_ren = pd.read_csv("data/legendas_ren.csv")
@@ -33,7 +42,7 @@ fig_ren_renpcap = Image.open('assets/fig_ren_renpcap.png')
 fig_ren_ag_ban = Image.open('assets/fig_ren_ag_ban.png')
 
 #Início da página
-st.set_page_config(page_title="IDH Renda", page_icon=":coin:")
+#st.set_page_config(page_title="IDH Renda", page_icon=":coin:")
 st.title('IDH - Renda')
 
 #Colunas para as imagens
