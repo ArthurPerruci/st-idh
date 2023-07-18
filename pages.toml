@@ -1,0 +1,23 @@
+[[pages]]
+path="st-app.py"
+name="Início"
+
+[[pages]]
+path="pages/1_Entenda_o_Idh.py"
+name="Entenda o IDH"
+
+[[pages]]
+path="pages/2_Evolução_do_Idh_nas_regioes.py"
+name="Evolução do IDH nas Regiões"
+
+[[pages]]
+path="pages/3_IDH_Longevidade.py"
+name="IDH - Longevidade"
+
+[[pages]]
+path="pages/4_IDH_Educação.py"
+name="IDH - Educação"
+
+[[pages]]
+path="pages/5_IDH_Renda.py"
+name="IDH - Renda"
