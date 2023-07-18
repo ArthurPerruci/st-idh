@@ -23,7 +23,7 @@ show_pages(
   ]
 )
 
-st.set_page_config(page_title="Início", page_icon=":home:")
+#st.set_page_config(page_title="Início", page_icon=":home:")
 st.title('IDH')
 st.write('Cesar School - Curso de Especialização em Engenharia e Análise de Dados')
 st.write('Projeto Final da Disciplina Análise e Visualização de Dados')
