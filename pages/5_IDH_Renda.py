@@ -32,16 +32,18 @@ df['regiao'] = df['uf'].apply(check_regiao)
 fig_ren_renpcap = Image.open('assets/fig_ren_renpcap.png')
 fig_ren_ag_ban = Image.open('assets/fig_ren_ag_ban.png')
 
+#Início da página
 st.set_page_config(page_title="IDH Renda", page_icon=":coin:")
 st.title('IDH - Renda')
 
+#Colunas para as imagens
 col1, col2, col3, col4 = st.columns(4)
-
 with col1:
      st.image(fig_ren_renpcap)
 with col2:
      st.image(fig_ren_ag_ban)
 
+#Gráfico mapa de calor indicadores renda e idh
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à renda com o idh-r e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores de renda per capta (em vários recortes) e percentual de população residente em domicílios com água encanada e banheiro.")
 ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
@@ -64,19 +66,21 @@ fig_idh_ren_leg.add_trace(
 st.plotly_chart(fig_idh_ren)
 st.plotly_chart(fig_idh_ren_leg)
 
+#Gráfico Renda per capita e idh
 st.markdown("Renda per capita e IDH")
 fig_idh_rdpc = go.Figure()
 fig_idh_rdpc.update_layout(title="Relação renda per capita e IDH - " + str(ano_grafico))
-fig_idh_rdpc.add_trace(go.Scatter(x=df['rdpc'], y=df['idhm'], mode="markers"))
+fig_idh_rdpc.add_trace(go.Scattergl(x=df['rdpc'], y=df['idhm'], mode="markers"))
 fig_idh_rdpc.update_xaxes(title_text="Renda per capita")
 fig_idh_rdpc.update_yaxes(title_text="Idhm")
 st.plotly_chart(fig_idh_rdpc)
 
+#Gráfico pop residente em domicílio com água encanada, banheiro e idh
 st.markdown("Água encanada, banheiro e IDH")
 fig_idh_aguaban = go.Figure()
 fig_idh_aguaban.update_layout(title="Relação entre população residente em domicílio com água encanada e banheiro e IDH - " + str(ano_grafico))
-fig_idh_aguaban.add_trace(go.Scatter(x=df['t_agua'], y=df['idhm'], mode="markers", name="população residente em domicílio com água encanada"))
-fig_idh_aguaban.add_trace(go.Scatter(x=df['t_banagua'], y=df['idhm'], mode="markers", name="população residente em domicílio com banheiro e água encanada"))
+fig_idh_aguaban.add_trace(go.Scattergl(x=df['t_agua'], y=df['idhm'], mode="markers", name="população residente em domicílio com água encanada"))
+fig_idh_aguaban.add_trace(go.Scattergl(x=df['t_banagua'], y=df['idhm'], mode="markers", name="população residente em domicílio com banheiro e água encanada"))
 fig_idh_aguaban.update_xaxes(title_text="Percentual da população")
 fig_idh_aguaban.update_yaxes(title_text="Idhm")
 st.plotly_chart(fig_idh_aguaban)
