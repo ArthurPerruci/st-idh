@@ -73,23 +73,27 @@ st.plotly_chart(fig_idh_long_leg)
 #Gráfico scatter esperança de vida ao nascer e idh
 st.markdown("Esperança de Vida ao Nascer e IDH")
 fig_idh_espvida = go.Figure()
-fig_idh_espvida.add_trace(go.Scattergl(x=df['espvida'], y=df['idhm'], mode="markers", color="regiao"))
+fig_idh_espvida.add_trace(go.Scattergl(x=df['espvida'], y=df['idhm'], mode="markers"))
 fig_idh_espvida.layout_update(title="Relação entre Esperança de vida ao Nascer e IDH - " + str(ano_grafico))
 fig_idh_espvida.xaxes_update(title_text="Esperança de vida ao nascer")
-fig_idh_espvida.xaxes_update(title_text="Idhm")
+fig_idh_espvida.yaxes_update(title_text="Idhm")
 st.plotly_chart(fig_idh_espvida)
 
+#Gráfico scatter probabilidade de sobrevivência até 40 anos e idh
 st.markdown("Probabilidade de sobrevivência até os 40 anos e IDH")
-fig_idh_sobre40 = alt.Chart(df, title="Relação entre a probabilidade de sobrevivência até os 40 anos e IDH - " + str(ano_grafico)).mark_circle().encode(
-     x=alt.X('sobre40', scale=alt.Scale(domain=[60,100])),
-     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-     color='regiao',
-     ).interactive()
-st.altair_chart(fig_idh_sobre40, theme="streamlit", use_container_width=True)
+fig_idh_sobre40 = go.Figure()
+fig_idh_sobre40.add_trace(go.Scattergl(x=df['sobre40'], y=df['idhm'], mode="markers"))
+fig_idh_sobre40.layout_update(title="Relação entre a probabilidade de sobrevivência até os 40 anos e IDH - " + str(ano_grafico))
+fig_idh_sobre40.xaxes_update(title_text="Probabilidade de sobrevivência até os 40 anos")
+fig_idh_sobre40.yaxes_update(title_text="Idhm")
+st.plotly_chart(fig_idh_sobre40)
+
+#Gráfico scatter probabilidade de sobrevivência até 60 anos e idh
 st.markdown("Probabilidade de sobrevivência até os 60 anos e IDH")
-fig_idh_sobre60 = alt.Chart(df, title="Relação entre a probabilidade de sobrevivência até os 60 anos e IDH - " + str(ano_grafico)).mark_circle().encode(
-     x=alt.X('sobre60', scale=alt.Scale(domain=[40,100])),
-     y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-     color='regiao',
-     ).interactive()
-st.altair_chart(fig_idh_sobre60, theme="streamlit", use_container_width=True)
+fig_idh_sobre60 = go.Figure()
+fig_idh_sobre60.add_trace(go.Scattergl(x=df['sobre60'], y=df['idhm'], mode="markers"))
+fig_idh_sobre60.layout_update(title="Relação entre a probabilidade de sobrevivência até os 60 anos e IDH - " + str(ano_grafico))
+fig_idh_sobre60.xaxes_update(title_text="Probabilidade de sobrevivência até os 60 anos")
+fig_idh_sobre60.yaxes_update(title_text="Idhm")
+st.plotly_chart(fig_idh_sobre60)
+
