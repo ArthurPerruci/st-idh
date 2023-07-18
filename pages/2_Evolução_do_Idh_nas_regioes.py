@@ -80,5 +80,6 @@ fig_idh_reg.update_layout(
    xaxis_title="Ano",
    yaxis_title="idhm"
    )
+fig_idh_reg.update_layout(legend=dict(x=0, y=1))
 st.plotly_chart(fig_idh_reg)
 st.markdown("O gráfico mostra a evolução dos valores médios de idhm das cinco regiões brasileiras. Fica evidente um processo de incremento dos valores de idh entre 1991 e 2010. Percebe-se também que os valores de idh nas regiões norte e nordeste são discretamente inferiores que os das demais regiões, da mesma maneira precebe-se que esta diferença diminuiu um pouco no período.")
