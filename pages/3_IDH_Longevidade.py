@@ -29,6 +29,13 @@ def check_regiao(uf):
 
 df['regiao'] = df['uf'].apply(check_regiao)
 
+#Dfs regionais
+df_sul = df.loc[df['regiao'] == 'Sul']
+df_sudeste = df.loc[df['regiao'] == 'Sudeste']
+df_centro_oeste = df.loc[df['regiao'] == 'Centro Oeste']
+df_nordeste = df.loc[df['regiao'] == 'Nordeste']
+df_norte = df.loc[df['regiao'] == 'Norte']
+
 #carregamento de imagens
 fig_long_esp_vid = Image.open('assets/fig_long_esp_vid.png')
 fig_long_sobr_40 = Image.open('assets/fig_long_sobr_40.png')
@@ -74,11 +81,11 @@ st.plotly_chart(fig_idh_long_leg)
 st.markdown("Esperança de Vida ao Nascer e IDH")
 fig_idh_espvida = go.Figure()
 fig_idh_espvida.add_trace(go.Scattergl(x=df['espvida'], y=df['idhm'], mode="markers", name="todos"))
-fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Sul']['espvida'], y=df['idhm'], mode="markers", name="Sul"))
-fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Sudeste']['espvida'], y=df['idhm'], mode="markers", name="Sudeste"))
-fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Centro Oeste']['espvida'], y=df['idhm'], mode="markers", name="Centro Oeste"))
-fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Nordeste']['espvida'], y=df['idhm'], mode="markers", name="Nordeste"))
-fig_idh_espvida.add_trace(go.Scattergl(x=df.loc[df['regiao']=='Norte']['espvida'], y=df['idhm'], mode="markers", name="Norte"))
+fig_idh_espvida.add_trace(go.Scattergl(x=df_sul['espvida'], y=df['idhm'], mode="markers", name="Sul"))
+fig_idh_espvida.add_trace(go.Scattergl(x=df_sudeste['espvida'], y=df['idhm'], mode="markers", name="Sudeste"))
+fig_idh_espvida.add_trace(go.Scattergl(x=df_centro_oeste['espvida'], y=df['idhm'], mode="markers", name="Centro Oeste"))
+fig_idh_espvida.add_trace(go.Scattergl(x=df_nordeste['espvida'], y=df['idhm'], mode="markers", name="Nordeste"))
+fig_idh_espvida.add_trace(go.Scattergl(x=df_norte['espvida'], y=df['idhm'], mode="markers", name="Norte"))
 fig_idh_espvida.update_layout(title="Relação entre Esperança de vida ao Nascer e IDH - " + str(ano_grafico))
 fig_idh_espvida.update_xaxes(title_text="Esperança de vida ao nascer")
 fig_idh_espvida.update_yaxes(title_text="Idhm")
