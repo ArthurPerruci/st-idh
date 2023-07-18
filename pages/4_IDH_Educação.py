@@ -36,11 +36,12 @@ fig_edu_tx_freq = Image.open('assets/fig_edu_tx_freq.png')
 fig_edu_ens_comp = Image.open('assets/fig_edu_ens_comp.png')
 fig_edu_nao_atraso = Image.open('assets/fig_edu_nao_atraso.png')
 
+#Início da página
 st.set_page_config(page_title="IDH Educação", page_icon=":book:")
 st.title('IDH - Educação')
 
+#Colunas para as imagens
 col1, col2, col3, col4 = st.columns(4)
-
 with col1:
      st.image(fig_edu_anos_est)
 with col2:
@@ -50,6 +51,7 @@ with col3:
 with col4:     
      st.image(fig_edu_nao_atraso)
 
+#Gráfico Mapa de calor indicadores educação e idhm
 st.markdown("Vários indicadores relacionados a longevidade, educação e renda são utilizados no cálculo do idh. No gráfico abaixo verifica-se a relação dos indicadores relacionados à educação com o idh-e e idh final. No gráfico destacam-se como mais forte a relação do idhm com os indicadores expectativa de anos de estudos, percentual de estudantes sem atraso no ensino fundamental e básico, taxas de frequência escolar nos ensino médio e superior e percentual de pessoas com ensino fundamental completo.")
 ano_grafico = st.sidebar.selectbox('Ano', df['ano'].unique())
 df = df.loc[df['ano'] == ano_grafico]
@@ -71,13 +73,15 @@ fig_idh_edu_leg.add_trace(
      )
 st.plotly_chart(fig_idh_edu)
 st.plotly_chart(fig_idh_edu_leg)
+
+#Gráfico pontos expectativa de anos de estudo e idh
 st.markdown("Expectativa de anos de estudo e IDH")
-fig_idh_e_anosestudo = alt.Chart(df, title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico)).mark_circle().encode(
-  x=alt.X('e_anosestudo'),
-  y=alt.Y('idhm', scale=alt.Scale(domain=[0,1])),
-  color='regiao',
-  ).interactive()
-st.altair_chart(fig_idh_e_anosestudo, theme="streamlit", use_container_width=True)
+fig_idh_e_anosestudo = go.Figure()
+fig_idh_e_anosestudo.update_layout(title="Relação entre a expectativa de anos de estudo  e IDH - " + str(ano_grafico))
+fig_idh_e_anosestudo.add_trace(go.Scatter(x=df['e_anosestudo'], y=df['idhm'], color=df['regiao'], mode="markers"))
+st.plotly_chart(fig_idh_e_anosestudo)
+
+#Gráfico pontos frequência escolar e idh
 st.markdown("Taxa de frequência escolar e IDH")
 fig_idh_freq = go.Figure()
 fig_idh_freq.update_layout(title="Relação entre a frequência escolar líquida e o IDH - " + str(ano_grafico))
@@ -87,6 +91,8 @@ fig_idh_freq.add_trace(go.Scatter(x=df['t_flsuper'], y=df['idhm'], mode="markers
 fig_idh_freq.update_xaxes(title_text="Frequência líquida")
 fig_idh_freq.update_yaxes(title_text="Idhm")
 st.plotly_chart(fig_idh_freq)
+
+#Gráfico pontos ensino completo e idh
 st.markdown("Ensino completo e IDH")
 fig_idh_comp = go.Figure()
 fig_idh_comp.update_layout(title="Relação entre o percentual da população com ensino completo e o IDH - " + str(ano_grafico))
@@ -97,6 +103,8 @@ fig_idh_comp.add_trace(go.Scatter(x=df['t_super25m'], y=df['idhm'], mode="marker
 fig_idh_comp.update_xaxes(title_text="% da população com ensino completo")
 fig_idh_comp.update_yaxes(title_text="Idhm")
 st.plotly_chart(fig_idh_comp)
+
+#Gráfico pontos atraso escolar e idh
 st.markdown("Atraso escolar e IDH")
 fig_idh_nao_atraso = go.Figure()
 fig_idh_nao_atraso.update_layout(title="Relação entre o percentual da população sem atraso escolar e o IDH - " + str(ano_grafico))
