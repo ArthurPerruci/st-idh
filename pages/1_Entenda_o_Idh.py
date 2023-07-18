@@ -5,21 +5,14 @@ import matplotlib.pyplot as plt
 import PIL
 from PIL import Image
 import plotly.graph_objects as go
+from st_pages import show_pages_from_config
 
-show_pages([
-    Page("st-app.py", "Início", ":home:"),
-    Page("pages/1_Entenda_o_Idh.py", "Entenda o IDH", ":curious:"),
-    Page("pages/2_Evolução_do_Idh_nas_regioes.py", "Evolução do IDH nas Regiões", ":plot:"),
-    Page("pages/3_IDH_Longevidade.py", "IDH - Longevidade", ":old_man:"),
-    Page("pages/4_IDH_Educação.py", "IDH - Educação", ":books:"),
-    Page("pages/5_IDH_Renda.py", "IDH - Renda", ":coin:"),
-  ])
+show_pages_from_config()
 
 #carregamento de imagens
 idh_composicao = Image.open('assets/idh_composicao.png')
 idh_faixas = Image.open('assets/idh_faixas.png')
 
-#st.set_page_config(page_title="Entenda o IDH", page_icon=":🤔:")
 st.title('Entenda o IDH')
 st.markdown("**O que representa o Índice de Desenvolvimento Humano - IDH**")
 st.image(idh_composicao)
